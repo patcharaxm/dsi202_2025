@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stray Animal Rescue Project</title>
+
+
+    <!-- Link to Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #6b4f44;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700; /* Make it bold */
+            color: #9E7464; /* Slightly soft brown color */
+            letter-spacing: 2px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            display: inline-block;
+        }
+
+        .logo .paw {
+            font-size: 48px; /* Paw emojis size */
+            color: #c09cd2; /* Golden color for paw emojis */
+        }
+
+        .logo .text {
+            color: #ebaccb; /* Pink color for 'Pawpal' text */
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .logo .highlight {
+            color: rgb(205, 166, 226); /* Golden color for highlight part */
+        }
+
+        /* Optional - add a shadow effect to the logo */
+        .logo {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: rgb(207, 205, 205);
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        header nav ul li a:hover {
+            color: #5d5544; /* Gold color on hover */
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('/Users/patcharaporn/Desktop/หมาแมว.png') no-repeat center center/cover;
+            padding: 150px 20px;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            background-size: cover;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .cta-btn {
+            background-color: #7d5a4c;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn:hover {
+            background-color: #674c38;
+            transform: translateY(-5px);
+        }
+
+        /* Adopt Pets Section */
+        .section-title {
+            text-align: center;
+            font-size: 26px;
+            color: #d81b60;
+            margin-top: 40px;
+            font-weight: 600;
+        }
+
+        .adopt-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 0 15px;
+            gap: 30px;
+        }
+
+        .pet-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 15px;
+            width: 230px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pet-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .pet-card strong {
+            font-size: 20px;
+            color: #d81b60;
+        }
+
+        .pet-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .pet-card button {
+            background-color: #ff7043;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+        }
+
+        .pet-card button:hover {
+            background-color: #d81b60;
+        }
+
+        .pet-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Donate Section */
+        .donate-section {
+            background-color: #ffebee;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .donate-section strong {
+            font-size: 22px;
+            font-weight: bold;
+            color: #d81b60;
+            margin-bottom: 10px;
+        }
+
+        .donate-section p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .donate-button {
+            background-color: #ff7043;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .donate-button:hover {
+            background-color: #d81b60;
+        }
+
+        /* Footer Section */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2e7d32;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <span class="paw">🦮</span>
+            <span class="text">Paw<span class="highlight">pal</span></span>
+            <span class="paw">🐈‍⬛</span>
+        </div>        
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Adopt pet</a></li>
+                <li><a href="#">Donate</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Find Your Perfect Match</h1>
+        <a href="#quiz" class="cta-btn">Start the Quiz to Find Your Match</a>
+    </section>
+
+<!-- Adopt Pets Section -->
+<div class="section-title">🐶 Adopt Pets</div>
+<div class="adopt-section">
+    <div class="pet-card">
+        <img src="pet1.jpg" alt="Pet 1">
+        <strong>No. D01</strong><br>
+        <p>Breed: Thai, Age: 3 years</p>
+        <button>Adopt</button>
+    </div>
+    <div class="pet-card">
+        <img src="pet2.jpg" alt="Pet 2">
+        <strong>No. C01</strong><br>
+        <p>Breed: Thai, Age: 2 years</p>
+        <button>Adopt</button>
+    </div>
+    <div class="pet-card">
+        <img src="pet3.jpg" alt="Pet 3">
+        <strong>No. D02</strong><br>
+        <p>Breed: Thai, Age: 4 years</p>
+        <button>Adopt</button>
+    </div>
+    <div class="pet-card">
+        <img src="pet4.jpg" alt="Pet 4">
+        <strong>No. D03</strong><br>
+        <p>Breed: Thai, Age: 2 months</p>
+        <button>Adopt</button>
+    </div>
+</div>
+
+<!-- Donate Section -->
+<div class="donate-section">
+    <div class="section-title">🐾 Donate</div>
+    <div>
+        <strong>No. D09</strong><br>
+        <p>He got attacked by a neighborhood cat!</p>
+        <button class="donate-button">Support Medical Expenses</button>
+    </div>
+    <div>
+        <strong>No. D10</strong><br>
+        <p>She needs urgent treatment after an accident!</p>
+        <button class="donate-button">Support Medical Expenses</button>
+    </div>
+</div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="contact">
+        <h3>Contact Us</h3>
+        <ul>
+            <li>Email: info@example.com</li>
+            <li>Phone: 123-456-789</li>
+            <li>Address: Near Your Street</li>
+        </ul>
+    </div>
+    <div class="social-media">
+        <h3>Follow Us</h3>
+        <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+        </ul>
+    </div>
+    <div class="newsletter">
+        <h3>Subscribe to Newsletter</h3>
+        <form>
+            <input type="email" placeholder="Your email">
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+    <p>&copy; 2025 Pawpal. All rights reserved.</p>
+</footer>
+</body>
+</html>

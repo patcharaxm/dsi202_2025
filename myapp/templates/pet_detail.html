@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luna | ID Card</title>
+    <style>
+        body {
+            background-color: #fff8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #444;
+            padding: 30px;
+        }
+
+        .card {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 25px;
+            border-radius: 20px;
+            background-color: #fffdf6;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .heart {
+            font-size: 28px;
+            color: #ccc;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .heart.saved {
+            color: #ff6b81;
+        }
+
+        .images {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .images img {
+            height: 160px;
+            width: 160px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 2px solid #ffe0e0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .info {
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        .info h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #ff6f61;
+            margin-bottom: 20px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            text-decoration: none;
+            background-color: #75d482;
+            padding: 12px 20px;
+            border-radius: 25px;
+            color: #333;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        a:hover {
+            background-color: #ffa8a8;
+            transform: scale(1.05);
+        }
+    </style>
+    <script>
+        function toggleFavorite(el) {
+            el.classList.toggle("saved");
+            alert("🐾 Added to favorites!");
+        }
+    </script>
+</head>
+<body>
+
+<div class="card">
+    <span class="heart" onclick="toggleFavorite(this)">❤️</span>
+
+    <div class="images">
+        <img src="/Users/patcharaporn/Downloads/Scottish-Fold-2.jpg" alt="Luna the cat">
+    </div>
+
+    <div class="info">
+        <h2>Luna</h2>
+        <p><span class="label">Age:</span> 2 years</p>
+        <p><span class="label">Gender:</span> Female</p>
+        <p><span class="label">Breed:</span> Scottish Fold</p>
+        <p><span class="label">Story:</span> Luna was found near a coffee shop, scared and hungry. Now she’s looking for a warm, loving home to call her own.</p>
+        <p><span class="label">Health Issues:</span> None</p>
+        <p><span class="label">Vaccination:</span> Fully vaccinated (Rabies, FVRCP)</p>
+        <p><span class="label">Personality:</span> Playful, calm, and loves belly rubs</p>
+        <p><span class="label">Special Needs:</span> Needs a quiet environment without dogs</p>
+    </div>
+
+    <a href="/pets">← Back to Pet List</a>
+</div>
+
+</body>
+</html>
