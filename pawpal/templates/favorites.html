@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Favorite Pets - PawPal{% endblock %}
+{% block content %}
+<div class="max-w-5xl mx-auto px-4 py-10">
+  <h1 class="text-3xl font-bold text-center mb-6 text-[#4e6e4e]">Fav Lists</h1>
+  <div id="favoritesContainer" class="space-y-6"></div>
+
+  <div class="mt-10 flex justify-between items-center">
+    <label><input type="checkbox" id="selectAll"> All</label>
+    <button onclick="submitAdoption()" class="bg-[#6d9f71] text-white px-6 py-2 rounded-full font-bold">Adopt</button>
+  </div>
+</div>
+
+<script>
+  async function loadFavorites() {
+    const ids = JSON.parse(localStorage.getItem("favorites") || "[]");
+    if (ids.length === 0) {
+      document.getElementById("favoritesContainer").innerHTML = "<p class='text-center text-gray-500'>No favorite pets selected.</p>";
+      return;
+    }
+
+    const res = await fetch(`/api/favorite-pets/?${ids.map(id => `ids[]=${id}`).join('&')}`);
+    const data = await res.json();
+    const container = document.getElementById("favoritesContainer");
+    container.innerHTML = "";
+
+    data.pets.forEach(pet => {
+      const html = `
+        <div class="flex gap-4 items-start bg-[#fefae0] rounded-xl shadow p-4">
+          <img src="${pet.image_url}" alt="${pet.name}" class="w-28 h-28 rounded-lg object-cover">
+          <div class="flex-grow">
+            <p class="font-bold">No. ${pet.pet_id}</p>
+            <p>Breed: ${pet.breed}</p>
+            <p>Gender: ${pet.gender}</p>
+            <p>Age: ${pet.age}</p>
+            <p>Personality: ${pet.personality}</p>
+          </div>
+          <div>
+            <input type="checkbox" class="selectPet" value="${pet.id}">
+          </div>
+        </div>
+      `;
+      container.innerHTML += html;
+    });
+  }
+
+  function submitAdoption() {
+    const selected = Array.from(document.querySelectorAll('.selectPet:checked')).map(el => el.value);
+    if (selected.length === 0) return alert("Please select at least one pet.");
+
+    // 🔁 redirect to adoption form with selected pets
+    window.location.href = `/request-adoption/?pets=${selected.join(',')}`;
+  }
+
+  document.getElementById("selectAll").addEventListener("change", function () {
+    document.querySelectorAll(".selectPet").forEach(el => el.checked = this.checked);
+  });
+
+  loadFavorites();
+</script>
+{% endblock %}

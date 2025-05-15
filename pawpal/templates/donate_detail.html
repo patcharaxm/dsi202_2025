@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ donation.pet_name }} - Donate</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Donate for {{ donation.pet_name }}</h1>
+        </div>
+    </header>
+
+    <section class="donate-detail">
+        <img src="{{ donation.image_url }}" alt="{{ donation.pet_name }}">
+        <div class="donate-info">
+            <p>Pet Name: {{ donation.pet_name }}</p>
+            <p>Donation No: {{ donation.number }}</p>
+            <p>Description: {{ donation.description }}</p>
+        </div>
+        <a href="#" class="btn-donate">Donate Now</a>
+    </section>
+
+    <footer>
+        <p>© 2025 PawPal. All rights reserved.</p>
+    </footer>
+</body>
+</html>

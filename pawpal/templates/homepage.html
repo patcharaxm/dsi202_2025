@@ -1,0 +1,219 @@
+<!-- templates/homepage.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home - PawPal{% endblock %}
+{% block content %}
+
+<!-- Personality Test -->
+
+<!-- Moving Background Section -->
+<div class="relative rounded-2xl shadow-lg p-8 overflow-hidden animate-gradient-x bg-gradient-to-r from-[#dd6b20] via-[#dd6b20] to-[#fdba74]">
+
+    <!-- Cloud -->
+    <div class="absolute w-24 h-12 bg-white opacity-30 rounded-full top-4 left-4 animate-cloud" style="animation-delay: 1s;"></div>
+    <div class="absolute w-32 h-16 bg-white opacity-30 rounded-full top-12 left-1/2 animate-cloud" style="animation-delay: 2s;"></div>
+  
+    <!-- Text Content -->
+    <div class="relative z-10 text-[#fffaf0] text-center flex flex-col items-center justify-center space-y-3">
+        <h2 class="text-4xl text-[#fffaf0] font-extrabold mb-2" style="font-family: 'Fredoka', sans-serif;">Personality Test</h2>
+        <p class="text-white text-sm">Find the perfect match for you!<span class="text-[#fdba74]">🐾</span></p>
+    
+      <!-- CTA Button -->
+        <a  href="{% url 'personality_test' %}"
+            class="bg-[#fdf3e3] text-[#dd6b20] font-bold px-8 py-2 rounded-full border-4 border-[#63360c] 
+                   hover:bg-[#6d9f71] hover:text-[#fffaf0] hover:border-[#6d9f71] 
+                   transition-all duration-300 ease-in-out shadow-md">
+            Start Test
+        </a>
+      
+      <!-- Cat walks in front -->
+        <img src="{% static 'cat.png' %}" alt="Cat" class="animate-cat-walk" style="right:-150px; bottom:0;" />
+        <img src="{% static 'dog.png' %}" alt="Dog" class="animate-dog-walk" style="right:-200px; bottom:0;" />
+    </div>
+</div>
+
+
+<!--Pets for Adoption Animals -->
+<div class="mt-16">
+    <h2 class="text-3xl font-bold text-center text-[#523a28] mb-6" style="font-family: 'Lexend', sans-serif;">Pets Available for Adoption Nearby</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {% for pet in featured_animals %}
+
+      
+      <a href="{% url 'pet_detail' pet.id %}"
+       class="group block bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]">
+
+        <!-- ❤️ ปุ่ม Favorite มุมขวาบน -->
+        <button class="absolute top-3 right-3 text-white hover:text-[#d55e00]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 
+              4.42 3 7.5 3c1.74 0 3.41 0.81 
+              4.5 2.09C13.09 3.81 14.76 3 
+              16.5 3 19.58 3 22 5.42 
+              22 8.5c0 3.78-3.4 6.86-8.55 
+              11.54L12 21.35z"/>
+            </svg>
+          </button>
+        <!-- รูปสัตว์ -->
+        <img src="{{ pet.image.url }}" alt="{{ pet.name }}" class="w-full h-56 object-cover">
+
+        <!-- ข้อมูล -->
+        <div class="p-4 text-left" style="font-family: 'Lexend', sans-serif;">
+            <div class="flex justify-between items-center">
+              <h3 class="text-xl font-bold text-[#523a28]" style="font-family: 'Lexend', sans-serif;">{{ pet.name }}</h3>
+              {% if pet.gender == "male" %}
+                <span title="Male" class="text-blue-500 text-xl">♂</span>
+              {% elif pet.gender == "female" %}
+                <span title="Female" class="text-pink-500 text-xl">♀</span>
+              {% else %}
+                <span class="text-gray-400">?</span>
+              {% endif %}
+            </div>
+            <p class="text-sm text-[#8d6e63]" style="font-family: 'Lexend', sans-serif;">{{ pet.breed }}</p>
+        </div>
+
+        <!--View More -->
+        <div class="px-4 pb-4">
+            <p class="inline-block w-full text-center bg-[#6d9f71] text-white px-4 py-2 rounded-full font-semibold hover:bg-[#5a8861] transition">
+            View More </p>
+        </div>
+        </a>
+        
+
+      {% endfor %}
+
+      {% if remaining_animals > 0 %}
+       <div class="bg-[#5a8861] text-white rounded-xl shadow-md flex flex-col items-center justify-center p-6">
+        <!-- ไอคอนเท้า -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" class="w-12 h-12 mb-4">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5 13l4 4L19 7" />
+    </svg>
+    <p class="text-center text-lg">{{ remaining_animals }} more pets available</p>
+    <a href="{% url 'adopt' %}" class="mt-4 bg-white text-[#dd6b20] px-6 py-2 rounded-full font-semibold hover:bg-[#eee] transition">
+      MEET THEM
+    </a>
+  </div>
+{% endif %}
+    </div>
+</div>
+
+
+<!-- Overview Donation Section -->
+<div class="mt-20 text-center px-6 py-12 bg-[#fdf3e3] rounded-3xl shadow-lg">
+    <h2 class="text-3xl font-bold text-[#c6302c] mb-4" style="font-family: 'Lexend', sans-serif;">
+      Make a difference today!
+    </h2>
+    <p class="text-[#523a28] max-w-2xl mx-auto mb-6 text-sm md:text-base" style="font-family: 'Lexend', sans-serif;">
+      When you donate with PawPal, 100% of your donation goes toward helping animals in need.
+      Your contribution helps provide medical treatment, food, shelter, and love to stray dogs and cats.
+    </p>
+  
+    <!-- CTA Donate Now -->
+    <a href="{% url 'donate' %}" 
+    class="inline-block bg-[#d55e00] text-white px-8 py-3 rounded-full font-bold hover:bg-[#ba4a00] transition">
+    Donate ❤️
+    </a>
+  </div>
+
+
+  <!-- Section: Support Care for Our PawFriends -->
+<section class="mt-20">
+    <h2 class="text-2xl font-bold text-[#8d6e63] mb-6 text-center">Support Care for Our PawFriends</h2>
+    <div class="swiper supportSwiper px-4">
+      <div class="swiper-wrapper">
+        {% for pet in support_animals %}
+        <div class="swiper-slide">
+          <div class="relative bg-white rounded-xl shadow-md overflow-hidden group">
+            <img src="{{ pet.image.url }}" alt="{{ pet.name }}" class="h-48 w-full object-cover">
+            <div class="p-4 text-left">
+              <h3 class="font-bold text-lg text-[#523a28]">{{ pet.name }}</h3>
+              <p class="text-sm text-[#8d6e63] italic">{{ pet.breed }}</p>
+            </div>
+            <!-- Hover Overlay -->
+            <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+              <button onclick="openSupportPopup({{ pet.id }}, '{{ pet.name }}')" class="bg-white text-[#6d9f71] px-4 py-2 rounded-full font-semibold shadow hover:bg-[#6d9f71] hover:text-white">Sponsor</button>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-button-next text-[#8d6e63]"></div>
+      <div class="swiper-button-prev text-[#8d6e63]"></div>
+    </div>
+  </section>
+  
+  <!-- Support Pop-up -->
+  <div id="supportPopup" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden justify-center items-center">
+  <div class="bg-white p-6 rounded-xl max-w-md w-full relative">
+    <button onclick="closeSupportPopup()" class="absolute top-2 right-4 text-gray-500 hover:text-red-600 text-xl">&times;</button>
+    <h3 class="text-xl font-bold text-[#6d9f71] mb-4">Sponsor <span id="popupPetName"></span></h3>
+
+    <!-- Step 1: Fill amount -->
+    <input type="number" id="sponsorAmount" class="w-full mb-4 px-4 py-2 border rounded" placeholder="Enter amount (THB)">
+    <button onclick="showStaticQR()" class="w-full bg-[#6d9f71] text-white font-bold py-2 px-4 rounded-full">Continue</button>
+
+    <!-- Step 2: Show Static QR -->
+    <div id="qrSection" class="hidden mt-4 text-center">
+      <img src="{% static 'IMG_5331.JPG' %}" alt="PromptPay QR" class="w-48 mx-auto mb-4 rounded shadow">
+      <p class="text-sm text-gray-700 mb-2">Please transfer the amount shown above and upload payment slip.</p>
+      <input type="file" id="slipUpload" class="w-full mb-4">
+      <button onclick="confirmSupportDonation()" class="w-full bg-[#d55e00] text-white py-2 px-4 rounded-full">Confirm</button>
+    </div>
+
+    <!-- Step 3: Thank You -->
+    <div id="thankYouMessage" class="hidden text-center mt-4 text-[#6d9f71] font-semibold">
+      🙏 Thank you for your kindness!
+    </div>
+  </div>
+</div>
+  
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+  // 🌀 Swiper for Support Carousel
+  var swiper = new Swiper(".supportSwiper", {
+    slidesPerView: 1.2,
+    spaceBetween: 20,
+    loop: true,
+    breakpoints: {
+      640: { slidesPerView: 2 },
+      768: { slidesPerView: 3 },
+      1024: { slidesPerView: 4 },
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  // 📌 เปิด popup + reset state
+  function openSupportPopup(petId, petName) {
+    document.getElementById('popupPetName').textContent = petName;
+    document.getElementById('sponsorAmount').value = '';
+    document.getElementById('supportPopup').classList.remove('hidden');
+    document.getElementById('qrSection').classList.add('hidden');
+    document.getElementById('thankYouMessage').classList.add('hidden');
+  }
+
+  function closeSupportPopup() {
+    document.getElementById('supportPopup').classList.add('hidden');
+  }
+
+  function showStaticQR() {
+    const amount = document.getElementById('sponsorAmount').value;
+    if (!amount) {
+      alert("Please enter amount");
+      return;
+    }
+    document.getElementById('qrSection').classList.remove('hidden');
+  }
+
+  function confirmSupportDonation() {
+    document.getElementById('qrSection').classList.add('hidden');
+    document.getElementById('thankYouMessage').classList.remove('hidden');
+  }
+</script>
+  {% endblock %}
