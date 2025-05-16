@@ -77,9 +77,10 @@
         font-family: 'Quicksand', sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f8f0e3;
-        color: #8d6e63;
+        background-color: #f0f0f0;
+        color: #ffffff;
     }
+
     .container {
         max-width: 1200px;
         margin: 0 auto;
@@ -98,7 +99,7 @@
         line-height: 1.6;
     }
     a {
-        color: #d55e00;
+        color: #ffffff;
         text-decoration: none;
     }
     a:hover {
@@ -116,6 +117,90 @@
         /* Gradient background */
         background: linear-gradient(135deg, #f8f0e3, #e0f2f1);
     }
+
+    /* Footer Content */
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 20px;
+        background-color: transparent;  /* ตั้งสีพื้นหลังเป็นสีขาว */
+        font-family: Arial, sans-serif;
+    }
+
+    /* การจัดการของแต่ละ section */
+    .footer-section {
+        flex: 1 1 200px;
+        margin: 10px;
+    }
+
+    .footer-section h3 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 0px;  /* ลดระยะห่างระหว่างรายการ */
+    }
+
+    .footer-section ul li a {
+        text-decoration: none;
+        color: #b78c67;
+        font-size: 16px;   /* เพิ่มขนาดตัวอักษรเล็กน้อย */
+    }
+
+    .footer-section ul li a:hover {
+        color: #794b35;
+    }
+
+    /* Social Media */
+    .social-icons-list {
+        display: flex;
+        gap: 15px; /* เพิ่มช่องว่างระหว่างไอคอน */
+        margin-top: 10px;
+    }
+
+    .social-icons-list a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-color: #3b5998;  /* สีพื้นหลังของวงกลม */
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        font-size: 18px;  /* ขนาดของไอคอน */
+        transition: background-color 0.3s ease, transform 0.3s ease; /* เพิ่มเอฟเฟกต์ */
+    }
+
+    .social-icons-list a:hover {
+        background-color: #1da1f2; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+        transform: scale(1.1);  /* ขยายขนาดเมื่อ hover */
+    }
+
+    /* Payment Methods */
+    .payment-methods img {
+        width: 40px;
+        margin-right: 10px;
+    }
+
+    /* Copyright */
+    .copyright {
+        text-align: center;
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+
 
     .footer-content {
         display: flex;
@@ -148,7 +233,9 @@
     }
 
     .footer-section ul li {
-        margin-bottom: 10px;
+        margin-bottom: 18px;
+        font-size: 25px;
+        font-weight: bold;
     }
 
     .footer-section a {
@@ -169,13 +256,36 @@
     .contact-info p {
         margin-bottom: 10px;
         font-size: 16px;
+        font-weight: bold;;
     }
+
+
+
+    social-icons2 p{
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;;
+    }
+
+    .social-icons2 {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 15px;
+        flex-direction: column;  /* ทำให้ไอคอนเรียงในแนวตั้ง */
+        align-items: left;     /* จัดตำแหน่งให้ไอคอนอยู่กลางในแนวนอน */
+        gap: 10px; 
+    }
+
 
     .social-icons {
         display: flex;
         gap: 15px;
         justify-content: center;
         margin-top: 15px;
+        flex-direction: column;  /* ทำให้ไอคอนเรียงในแนวตั้ง */
+        align-items: left;     /* จัดตำแหน่งให้ไอคอนอยู่กลางในแนวนอน */
+        gap: 10px; 
     }
 
     .social-icons a {
@@ -185,7 +295,7 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background-color: #d55e00;
+        background-color: #c99f89;
         color: white;
         font-size: 20px;
         transition: background-color 0.3s ease;
@@ -196,7 +306,7 @@
     }
 
     .social-icons a:hover {
-        background-color: #b44800;
+        background-color: #c99f89;
         box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
         /* Stop animation on hover */
         animation: none;
@@ -235,7 +345,7 @@
     .newsletter-section {
         width: 100%;
         margin-bottom: 30px;
-        text-align: left;
+        text-align: center;
     }
 
     .newsletter-section h3 {
@@ -248,46 +358,43 @@
 
     .newsletter-form {
         display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
+        flex-direction: column;          /* เรียงไอเทมในแนวตั้ง */
+        align-items: center;             /* จัดตรงกลางในแนวนอน */
+        justify-content: center;         /* จัดตรงกลางในแนวตั้ง */
+        /* height: 100vh;                   ใช้ความสูงของหน้าจอทั้งหมด */ */
+        margin: 0;                       /* ลบ margin ที่อาจจะมี */
     }
 
     .newsletter-input {
-        flex: 1;
-        padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 10px 0 0 10px;
-        font-size: 16px;
-        color: #8d6e63;
-        margin-right: 0;
-        /* Added transition */
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        padding: 10px;
+        width: 250px;                    /* ขนาดความกว้างของช่องกรอกอีเมล์ */
+        margin-bottom: 10px;             /* เพิ่มช่องว่างระหว่างช่องกรอกกับปุ่ม */
+        border: 1px solid #ccc;         /* กรอบของ input */
+        border-radius: 4px;              /* ทำมุมของ input ให้โค้ง */
+        font-size: 16px;                 /* ขนาดตัวอักษรใน input */
     }
 
     .newsletter-submit {
-        padding: 12px 20px;
-        background-color: #d55e00;
+        padding: 10px 20px;
+        background-color: #9e7240;      /* สีพื้นหลังของปุ่ม */
         color: white;
         border: none;
-        border-radius: 0 10px 10px 0;
+        border-radius: 4px;             /* ทำมุมของปุ่มให้โค้ง */
         cursor: pointer;
         font-size: 16px;
         transition: background-color 0.3s ease;
-        white-space: nowrap;
-        /* Added shadow */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     .newsletter-submit:hover {
-        background-color: #b44800;
+        background-color: #ad6949;
         /* Increased shadow on hover */
         box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
     }
 
     .newsletter-input:focus {
         outline: none;
-        border-color: #d55e00;
-        box-shadow: 0 0 5px rgba(213, 94, 0, 0.3);
+        border-color: #c7c7c7;
+        box-shadow: 0 0 5px rgba(133, 133, 133, 0.3);
     }
 
     @media (max-width: 768px) {
@@ -311,7 +418,7 @@
     }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen" "style="background-color: #f0f0f0;">
 
     <!-- Navbar -->
     <nav class="bg-white shadow-md sticky top-0 z-50 text-[#8d6e63]">
@@ -319,12 +426,15 @@
           
           <!-- Left: Logo -->
         
-            <a href="{% url 'homepage' %}" class="flex items-center space-x-2">
+            <!-- <a href="{% url 'homepage' %}" class="flex items-center space-x-2">
                 <img src="{% static 'logo.png' %}"
                 alt="PawPal Logo"
+                class="w-16 h-16 md:w-20 md:h-20 object-contain rounded-xl shadow-sm" /> -->
+              <!-- <span class="text-xl text-[#d55e00]" style="font-family: 'Titan One', cursive;">PawPal</span> -->
+               <img src="{% static 'D:\TU\ปี3\mumu\dsi202_2025\static\cat-footprint.png' %}"
+                alt="PawPal Logo"
                 class="w-16 h-16 md:w-20 md:h-20 object-contain rounded-xl shadow-sm" />
-              <span class="text-xl text-[#d55e00]" style="font-family: 'Titan One', cursive;">PawPal</span>
-            </a>
+            <!-- </a> -->
 
           <!-- Hamburger button (mobile only) -->
           <button class="md:hidden text-[#8d6e63] focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
@@ -343,26 +453,28 @@
       
           <!-- Right: Icons -->
           <div class="hidden md:flex items-center space-x-4">
+            
             <!-- Favorite Icon -->
             <a href="{% url 'favorites' %}" class="group transition duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"
-                     class="w-10 h-10 transition duration-200">
-                  
-                  <!-- บ้าน (มีขอบ) -->
+                <img src="{% static 'D:\TU\ปี3\mumu\dsi202_2025\static\favorite-home.png' %}" alt="PawPal Icon" class="w-10 h-10 transition duration-200">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"
+                     class="w-10 h-10 transition duration-200"> -->
+                  <!-- บ้าน (มีขอบ)
                   <path d="M8 28 L32 8 L56 28 V56 H36 V40 H28 V56 H8 Z"
                         fill="#d99a56" stroke="#5a463e" stroke-width="2"
-                        class="group-hover:fill-[#c6302c] transition" />
-                  
+                        class="group-hover:fill-[#c6302c] transition" /> -->
                   <!-- หัวใจใหญ่กลางบ้าน (มีขอบ) -->
-                  <path d="M32 32 
+                  <!-- <path d="M32 32 
                            C28 28, 22 28, 22 34 
                            C22 40, 32 46, 32 46 
                            C32 46, 42 40, 42 34 
                            C42 28, 36 28, 32 32 Z"
                         fill="#c6302c" stroke="#a62826" stroke-width="1.5"
-                        class="group-hover:fill-[#d99a56] transition" />
-                </svg>
+                        class="group-hover:fill-[#d99a56] transition" /> -->
+                    <!-- </svg> -->
+
             </a>
+            
             <!-- Profile icon -->
              <a href="{% url 'login' %}" class="text-[#8d6e63] hover:text-[#c6302c]">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
@@ -394,55 +506,84 @@
     </nav>
 
     <!-- Page Content -->
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-4 py-8  "style="background-color: #f0f0f0;">
         {% block content %}
         {% endblock %}
     </main>
 
 
-    <footer>
+   <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>PawPal is dedicated to helping stray animals find loving homes. We provide resources, support, and a platform to connect adopters with animals in need.</p>
+            <div class="footer-section social-icons">
+                <h3>Pet Shop</h3>
+                <p>Sed viverra eget et malesuada. Pellentesque mattis libero viverra.</p>
+                <div class="social-icons-list">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
             </div>
-             <div class="newsletter-section">
+
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="#">New Products</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="#">Discount</a></li>
+                    <li><a href="#">F.A.Q</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section store-info">
+                <h3>Store</h3>
+                <p>8592 Fairground St, Tallahassee, FL 32303</p>
+                <p>+775 378 6348</p>
+                <p><a href="mailto:rgarton@outlook.com">rgarton@outlook.com</a></p>
+                <!-- <div class="payment-methods">
+                    <img src="visa-logo.png" alt="Visa">
+                    <img src="mastercard-logo.png" alt="Mastercard">
+                    <img src="paypal-logo.png" alt="PayPal">
+                </div> -->
+            </div>
+        </div>
+
+            <div class="newsletter-section">
                 <h3>Subscribe to Our Newsletter</h3>
                 <form class="newsletter-form">
                     <input type="email" class="newsletter-input" placeholder="Enter your email">
-                    <button type="submit" class="newsletter-submit">Subscribe</button>
+                    <button type="submit" class="newsletter-submit">Subscribe </button>
                 </form>
             </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <div class="contact-info">
-                    <p>Email: info@pawpal.com</p>
-                    <p>Phone: +123 456 7890</p>
-                    <p>Address: 123 Main St, City, State, Zip</p>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Get Involved</h3>
-                <ul>
-                    <li><a href="#">Adopt</a></li>
-                    <li><a href="#">Foster</a></li>
-                    <li><a href="#">Donate</a></li>
-                    <li><a href="#">Volunteer</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
         </div>
+
         <div class="copyright">
-            © 2025 PawPal. All rights reserved.
+            © 2025 Pet Shop. All rights reserved.
         </div>
     </footer>
+
+
+
+
 
 </body>
 </html>
