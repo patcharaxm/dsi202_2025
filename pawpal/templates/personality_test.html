@@ -20,7 +20,14 @@
         select:hover {
             background-color: #e0e0e0;  /* สีเทาเข้มขึ้นเมื่อ hover */
         }
-        
+
+        /* ปรับให้ select มีสไตล์สวยงาม */
+        select:focus {
+            outline: none;              /* ลบเส้นกรอบเมื่อเลือก */
+            border-color: #007bff;      /* สีกรอบเมื่อเลือก */
+            background-color: #fff;     /* เปลี่ยนพื้นหลังเป็นขาวเมื่อเลือก */
+        }
+
       <!-- Question 1 -->
       <div class="mb-6">
         <label class="block text-gray-700 font-medium mb-2">1. วันหยุดที่คุณชอบคือแบบไหน?</label>
