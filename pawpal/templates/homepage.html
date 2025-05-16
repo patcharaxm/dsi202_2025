@@ -8,39 +8,44 @@
 <!-- Personality Test -->
 
 <!-- Moving Background Section -->
-<div class="relative rounded-2xl shadow-lg p-8 overflow-hidden animate-gradient-x bg-gradient-to-r from-[#dd6b20] via-[#dd6b20] to-[#fdba74]">
-
+<div class="relative rounded-2xl shadow-lg p-8 overflow-hidden animate-gradient-x bg-gradient-to-r from-[#dd6b20] via-[#dd6b20] to-[#fdba74]"
+     style="background-image: url('{% static 'D:\TU\ปี3\mumu\dsi202_2025\static\group-pets-together-white-banner-isolated-transparent-background_641503-46816.jpg.avif' %}'); background-size: cover; background-position: center; height  : 300px; width: 100; display: flex; justify-content: center; align-items: center;"">
     <!-- Cloud -->
-    <div class="absolute w-24 h-12 bg-white opacity-30 rounded-full top-4 left-4 animate-cloud" style="animation-delay: 1s;"></div>
-    <div class="absolute w-32 h-16 bg-white opacity-30 rounded-full top-12 left-1/2 animate-cloud" style="animation-delay: 2s;"></div>
   
     <!-- Text Content -->
     <div class="relative z-10 text-[#fffaf0] text-center flex flex-col items-center justify-center space-y-3">
-        <h2 class="text-4xl text-[#fffaf0] font-extrabold mb-2" style="font-family: 'Fredoka', sans-serif;">Personality Test</h2>
-        <p class="text-white text-sm">Find the perfect match for you!<span class="text-[#fdba74]">🐾</span></p>
+        <h2 class="text-4xl text-[#fffaf0] font-extrabold mb-2"
+         style="font-family: 'Fredoka', sans-serif; 
+                   /* border: 2px solid #000; /* กรอบสีดำ */
+                   padding: 0px 0px; /* เพิ่มช่องว่างรอบข้อความ */
+                   border-radius: 10px; */
+                   ">Personality Test</h2>
+
+        <p class="text-white text-sm">Find the perfect match for you!<span class="text-[#fdba74]"></span></p>
     
       <!-- CTA Button -->
         <a  href="{% url 'personality_test' %}"
-            class="bg-[#fdf3e3] text-[#dd6b20] font-bold px-8 py-2 rounded-full border-4 border-[#63360c] 
-                   hover:bg-[#6d9f71] hover:text-[#fffaf0] hover:border-[#6d9f71] 
-                   transition-all duration-300 ease-in-out shadow-md">
+            
+        
+            class="bg-[#f0f0f0] text-[#63360c] font-bold px-8 py-2 rounded-full border-4 border-[#63360c] 
+                   
+            hover:bg-[#6d9f71] hover:text-[#f0f0f1] hover:border-[#6d9f71] 
+                   transition-all duration-300 ease-in-out shadow-md"
+                   >
             Start Test
         </a>
       
       <!-- Cat walks in front -->
-        <img src="{% static 'cat.png' %}" alt="Cat" class="animate-cat-walk" style="right:-150px; bottom:0;" />
-        <img src="{% static 'dog.png' %}" alt="Dog" class="animate-dog-walk" style="right:-200px; bottom:0;" />
     </div>
 </div>
 
 
 <!--Pets for Adoption Animals -->
-<div class="mt-16">
+<div class="mt-16" >
     <h2 class="text-3xl font-bold text-center text-[#523a28] mb-6" style="font-family: 'Lexend', sans-serif;">Pets Available for Adoption Nearby</h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       {% for pet in featured_animals %}
-
       
       <a href="{% url 'pet_detail' pet.id %}"
        class="group block bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]">
@@ -56,7 +61,8 @@
               11.54L12 21.35z"/>
             </svg>
           </button>
-        <!-- รูปสัตว์ -->
+        
+          <!-- รูปสัตว์ -->
         <img src="{{ pet.image.url }}" alt="{{ pet.name }}" class="w-full h-56 object-cover">
 
         <!-- ข้อมูล -->
@@ -103,8 +109,8 @@
 
 
 <!-- Overview Donation Section -->
-<div class="mt-20 text-center px-6 py-12 bg-[#fdf3e3] rounded-3xl shadow-lg">
-    <h2 class="text-3xl font-bold text-[#c6302c] mb-4" style="font-family: 'Lexend', sans-serif;">
+<div class="mt-20 text-center px-6 py-12 bg-[#fdf3e3] rounded-3xl shadow-lg" style="background-color: #c6c6c6;">
+    <h2 class="text-3xl font-bold text-[#797979] mb-4" style="font-family: 'Lexend', sans-serif; background-color: #c6c6c6;">
       Make a difference today!
     </h2>
     <p class="text-[#523a28] max-w-2xl mx-auto mb-6 text-sm md:text-base" style="font-family: 'Lexend', sans-serif;">
@@ -114,7 +120,7 @@
   
     <!-- CTA Donate Now -->
     <a href="{% url 'donate' %}" 
-    class="inline-block bg-[#d55e00] text-white px-8 py-3 rounded-full font-bold hover:bg-[#ba4a00] transition">
+    class="inline-block bg-[#d55e00] text-white px-8 py-3 rounded-full font-bold hover:bg-[#ba4a00] transition" style="background-color: #686868;">
     Donate ❤️
     </a>
   </div>
