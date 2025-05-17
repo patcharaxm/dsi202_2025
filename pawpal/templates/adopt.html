@@ -14,21 +14,22 @@
   .timeline-item {
     display: contents;
   }
-  
-      <option value="dog" {% if request.GET.species == 'dog' %}selected{% endif %}>Dog</option>
-      <option value="cat" {% if request.GET.species == 'cat' %}selected{% endif %}>Cat</option>
-    </select>
 
-    <button type="submit" class="bg-[#d55e00] text-white font-semibold px-6 py-2 rounded-lg shadow hover:bg-[#b54800] transition">Search</button>
-  </form>
+  .timeline-circle {
+    grid-column: 1;
+    background-color: #d55e00;
+    color: white;
+    font-weight: bold;
+    width: 32px;
+    height: 32px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lexend', sans-serif;
+    position: relative;
+  }
 
-  <!-- Pet Cards Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-    {% for pet in available_pets %}
-    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition relative cursor-pointer" onclick="openPetModal({{ pet.id }})">
-      <img src="{{ pet.image.url }}" alt="{{ pet.name }}" class="w-full h-56 object-cover">
-      <div class="p-4">
-        <h3 class="text-xl font-bold text-[#6d4c41] mb-1">{{ pet.name }}</h3>
         <p class="text-sm text-gray-600">Breed: {{ pet.breed }}</p>
         <p class="text-sm text-gray-600">Color: {{ pet.color }}</p>
         <p class="text-sm text-gray-600">ID: {{ pet.pet_id }}</p>
