@@ -44,17 +44,18 @@
     </div>
 </div>
 
-
-<!--Pets for Adoption Animals -->
+<!-- Pets Available for Adoption Nearby -->
 <div class="mt-16">
-    <h2 class="text-3xl font-bold text-center text-[#523a28] mb-6" style="font-family: 'Lexend', sans-serif;">Pets Available for Adoption Nearby</h2>
+    <h2 class="text-3xl font-bold text-center text-[#523a28] mb-6" style="font-family: 'Lexend', sans-serif;">
+      Find Your New Best Friend Nearby
+    </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {% for pet in featured_animals %}
         <div onclick="openPetModal({{ pet.id }})"
              class="relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.05] cursor-pointer">
       
-          <!-- ❤️ ปุ่ม Favorite มุมขวาบน -->
+          <!-- Favorite Button Top Right -->
           <button onclick="event.stopPropagation(); toggleFavorite('{{ pet.id }}')"
                   class="absolute top-2 right-2 z-10">
             <svg id="heart-{{ pet.id }}" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
@@ -68,10 +69,10 @@
             </svg>
           </button>
       
-          <!-- รูปสัตว์ -->
+          <!-- Pet Image -->
           <img src="{{ pet.image.url }}" alt="{{ pet.name }}" class="w-full h-56 object-cover">
       
-          <!-- ข้อมูล -->
+          <!-- Pet Info -->
           <div class="p-4 text-left" style="font-family: 'Lexend', sans-serif;">
             <div class="flex justify-between items-center">
               <h3 class="text-xl font-bold text-[#523a28]">{{ pet.name }}</h3>
@@ -90,25 +91,23 @@
       
         {% if remaining_animals > 0 %}
         <div class="bg-[#5a8861] text-white rounded-xl shadow-md flex flex-col items-center justify-center p-6">
-          <p class="text-center text-lg">{{ remaining_animals }} more pets available</p>
+          <p class="text-center text-lg font-semibold">{{ remaining_animals }} more furry friends are waiting for you!</p>
           <a href="{% url 'adopt' %}"
              class="mt-4 bg-white text-[#dd6b20] px-6 py-2 rounded-full font-semibold hover:bg-[#eee] transition-all duration-300 hover:shadow-2xl hover:scale-[1.05]">
-            MEET THEM
+            See Them All
           </a>
         </div>
         {% endif %}
     </div>
 </div>
 
-
-<!-- Overview Donation Section -->
+<!-- Donation Overview Section -->
 <div class="mt-20 text-center px-6 py-12 bg-[#fdf3e3] rounded-3xl shadow-lg">
     <h2 class="text-3xl font-bold text-[#c6302c] mb-4" style="font-family: 'Lexend', sans-serif;">
-      Make a difference today!
+      Help Us Change Lives Today
     </h2>
     <p class="text-[#523a28] max-w-2xl mx-auto mb-6 text-sm md:text-base" style="font-family: 'Lexend', sans-serif;">
-      When you donate with PawPal, 100% of your donation goes toward helping animals in need.
-      Your contribution helps provide medical treatment, food, shelter, and love to stray dogs and cats.
+      Your support helps provide shelter, food, and medical care to animals in need. Together, we can make a difference.
     </p>
   
     <!-- CTA Donate Now -->
@@ -116,12 +115,11 @@
     class="inline-block bg-[#d55e00] text-white px-8 py-3 rounded-full font-bold hover:bg-[#ba4a00] transition">
     Donate ❤️
     </a>
-  </div>
+</div>
 
-
-  <!-- Section: Support Care for Our PawFriends -->
+<!-- Support Section -->
 <section class="mt-20">
-    <h2 class="text-2xl font-bold text-[#8d6e63] mb-6 text-center">Support Care for Our PawFriends</h2>
+    <h2 class="text-2xl font-bold text-[#8d6e63] mb-6 text-center">Support Our PawFriends' Journey to a Better Life</h2>
     <div class="swiper supportSwiper px-4">
       <div class="swiper-wrapper">
         {% for pet in support_animals %}
@@ -143,8 +141,8 @@
       <div class="swiper-button-next text-[#8d6e63]"></div>
       <div class="swiper-button-prev text-[#8d6e63]"></div>
     </div>
-  </section>
-  
+</section>
+
   <!-- Updated Support Pop-up with real QR, upload, and donation submission -->
 <div id="supportPopup" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden justify-center items-center">
     <div class="bg-white p-6 rounded-xl max-w-md w-full relative">
