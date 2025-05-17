@@ -17,8 +17,8 @@
       <img src="{% static 'banner3.jpg' %}" class="w-full h-full object-cover" />
     </div>
   </div>
-  <div class="swiper-button-next text-black"></div>
-  <div class="swiper-button-prev text-black"></div>
+  <div class="swiper-button-next text-[#0f2b50]"></div>
+  <div class="swiper-button-prev text-[#0f2b50]"></div>
 </div>
 
 <script>
@@ -37,21 +37,23 @@
 
 <!-- Intro Section -->
 <div class="text-center mt-10 max-w-3xl mx-auto px-4">
-    <p class="text-lg text-gray-700 mb-3" style="font-family: 'Lexend', sans-serif;">We rescue stray dogs and cats, give them medical care and help them find loving homes. With your support, we can save more lives and cover treatment costs for animals in need. Every donation makes a difference. Thank you for helping us give them a second chance.</p>
+    <p class="text-lg text-[#0f2b50] mb-3" style="font-family: 'Lexend', sans-serif;">
+      We rescue stray dogs and cats, give them medical care and help them find loving homes. With your support, we can save more lives and cover treatment costs for animals in need. Every donation makes a difference. Thank you for helping us give them a second chance.
+    </p>
 </div>
 
 <!-- Heading -->
-<h2 class="text-5xl font-bold text-center text-[#8d6e63] mb-4" style="font-family: 'Lexend', sans-serif;">
+<h2 class="text-5xl font-bold text-center text-[#0f2b50] mb-4" style="font-family: 'Lexend', sans-serif;">
     Donate Today
 </h2>
   
 <!-- Divider with Heart -->
 <div class="flex items-center justify-center mb-10">
     <!-- Left Line -->
-    <div class="flex-grow h-[4px] bg-[#fdba74] rounded-full max-w-[200px]"></div>
+    <div class="flex-grow h-[4px] bg-[#0f2b50] rounded-full max-w-[200px]"></div>
   
     <!-- Heart Icon -->
-    <div class="mx-4 text-[#f4c152]">
+    <div class="mx-4 text-[#0f2b50]">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-8 h-8" viewBox="0 0 24 24">
           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
                    2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 
@@ -62,21 +64,19 @@
     </div>
   
     <!-- Right Line -->
-    <div class="flex-grow h-[4px] bg-[#fdba74] rounded-full max-w-[200px]"></div>
+    <div class="flex-grow h-[4px] bg-[#0f2b50] rounded-full max-w-[200px]"></div>
 </div>
-
-
 
 <!-- Donation Info Section -->
 <div class="max-w-5xl mx-auto px-4 mb-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
 
     <!-- Left: Donation Box -->
-    <div class="bg-white p-5 rounded-xl shadow-lg space-y-4">
+    <div class="bg-[#f9f4e7] p-5 rounded-xl shadow-lg space-y-4">
   
     <!-- Logo & Intro -->
     <div class="flex flex-col items-center text-center">
     <img src="{% static 'logo.png' %}" alt="PawPal Logo" class="h-32 mb-4">
-        <p class="text-sm text-gray-600" style="font-family: 'Lexend', sans-serif;">
+        <p class="text-sm text-[#0f2b50]" style="font-family: 'Lexend', sans-serif;">
             When you donate with <strong>Pawpal</strong>, 100% of your donation goes towards the project. 
             This means that any donations received will go directly to benefiting the dogs and cats, 
             such as medical supplies and foods.
@@ -84,175 +84,173 @@
     </div>
   
     <!-- Input -->
-      <label class="block font-semibold text-gray-700 mb-1" style="font-family: 'Lexend', sans-serif;">Donation Amount (THB)</label>
-      <input type="number" id="donationAmount" name="amount" value="250" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-orange-300" placeholder="ระบุจำนวนเงิน (บาท)">
+      <label class="block font-semibold text-[#0f2b50] mb-1" style="font-family: 'Lexend', sans-serif;">Donation Amount (THB)</label>
+      <input type="number" id="donationAmount" name="amount" value="250" class="w-full px-4 py-2 border border-[#0f2b50] rounded focus:outline-none focus:ring-2 focus:ring-[#0f2b50]" placeholder="ระบุจำนวนเงิน (บาท)">
   
     <!-- Quick Options -->
-      <div class="space-y-2">
-        <label><input type="radio" name="quickAmount" value="100" class="mr-2"> ฿100</label><br>
-        <label><input type="radio" name="quickAmount" value="250" class="mr-2" checked> ฿250</label><br>
-        <label><input type="radio" name="quickAmount" value="500" class="mr-2"> ฿500</label><br>
-        <label><input type="radio" name="quickAmount" value="1000" class="mr-2"> ฿1000</label><br>
-        <label><input type="radio" name="quickAmount" value="" class="mr-2"> Custom Amount</label>
+      <div class="space-y-2 text-[#0f2b50]">
+        <label><input type="radio" name="quickAmount" value="100" class="mr-2 accent-[#0f2b50]"> ฿100</label><br>
+        <label><input type="radio" name="quickAmount" value="250" class="mr-2 accent-[#0f2b50]" checked> ฿250</label><br>
+        <label><input type="radio" name="quickAmount" value="500" class="mr-2 accent-[#0f2b50]"> ฿500</label><br>
+        <label><input type="radio" name="quickAmount" value="1000" class="mr-2 accent-[#0f2b50]"> ฿1000</label><br>
+        <label><input type="radio" name="quickAmount" value="" class="mr-2 accent-[#0f2b50]"> Custom Amount</label>
       </div>
   
     <!-- Donate Button -->
-    <button onclick="openPopup()" class="bg-[#d55e00] text-white font-semibold px-6 py-3 rounded-full shadow-md hover:bg-[#b54800] transition">
+    <button onclick="openPopup()" class="bg-[#0f2b50] text-[#f9f4e7] font-semibold px-6 py-3 rounded-full shadow-md hover:bg-[#0d2745] transition">
         Donate Now
     </button>
     </div>
   
     <!-- Popup Overlay -->
 <div id="donatePopup" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 hidden">
-    <div class="bg-white p-6 rounded-xl max-w-lg w-full relative shadow-lg">
+    <div class="bg-[#f9f4e7] p-6 rounded-xl max-w-lg w-full relative shadow-lg">
 
   
-      <button onclick="closePopup()" class="absolute top-2 right-4 text-gray-500 hover:text-red-600 text-xl">&times;</button>
+      <button onclick="closePopup()" class="absolute top-2 right-4 text-[#0f2b50] hover:text-red-600 text-xl">&times;</button>
   
       <!-- Step 1: Fill Info -->
       <div id="step1">
-        <h3 class="text-2xl font-bold text-center text-[#523a28] mb-4">Donor Information</h3>
-        <input type="text" id="donorName" placeholder="Full Name" class="w-full border rounded px-4 py-2 mb-3" required>
-        <input type="email" id="email" placeholder="Email" class="w-full border rounded px-4 py-2 mb-3" required>
-        <p class="text-sm mb-2 text-gray-700">Payment Method: <strong>PromptPay</strong></p>
+        <h3 class="text-2xl font-bold text-center text-[#0f2b50] mb-4">Donor Information</h3>
+        <input type="text" id="donorName" placeholder="Full Name" class="w-full border border-[#0f2b50] rounded px-4 py-2 mb-3 text-[#0f2b50]" required>
+        <input type="email" id="email" placeholder="Email" class="w-full border border-[#0f2b50] rounded px-4 py-2 mb-3 text-[#0f2b50]" required>
+        <p class="text-sm mb-2 text-[#0f2b50]">Payment Method: <strong>PromptPay</strong></p>
         <input type="hidden" id="paymentMethod" value="promptpay">
-        <textarea id="message" rows="2" placeholder="Message (optional)" class="w-full border rounded px-4 py-2 mb-4"></textarea>
-        <button onclick="goToStep2()" class="bg-[#6d9f71] text-white px-6 py-2 rounded-full w-full font-bold hover:bg-[#51865b]">Continue</button>
+        <textarea id="message" rows="2" placeholder="Message (optional)" class="w-full border border-[#0f2b50] rounded px-4 py-2 mb-4 text-[#0f2b50]"></textarea>
+        <button onclick="goToStep2()" class="bg-[#0f2b50] text-[#f9f4e7] px-6 py-2 rounded-full w-full font-bold hover:bg-[#0d2745]">Continue</button>
       </div>
   
       <!-- Step 2: QR or Credit -->
       <div id="step2" class="hidden">
-        <div id="promptpaySection" class="text-center">
+        <div id="promptpaySection" class="text-center text-[#0f2b50]">
           <h4 class="text-xl font-semibold mb-2">Scan to Pay with PromptPay</h4>
           <div id="qrImageContainer" class="mb-4"></div>
-          <p class="text-sm text-gray-600">You have <span id="countdown">05:00</span> minutes to complete payment</p>
-          <input type="file" id="slipImage" accept="image/*" class="mt-4 w-full">
+          <p class="text-sm text-[#0f2b50]">You have <span id="countdown">05:00</span> minutes to complete payment</p>
+          <input type="file" id="slipImage" accept="image/*" class="mt-4 w-full border border-[#0f2b50] rounded text-[#0f2b50]">
         </div>
-        <button onclick="submitDonation()" class="bg-[#d55e00] text-white font-bold px-6 py-2 mt-6 rounded-full w-full">Confirm Donation</button>
+        <button onclick="submitDonation()" class="bg-[#0f2b50] text-[#f9f4e7] font-bold px-6 py-2 mt-6 rounded-full w-full hover:bg-[#0d2745]">Confirm Donation</button>
       </div>
   
       <!-- Step 3: Thank You -->
       <div id="step3" class="hidden text-center">
         <h3 class="text-2xl font-bold text-[#6d9f71] mb-4">Thank You!</h3>
-        <p class="text-gray-700">We truly appreciate your support ❤️</p>
-        <button onclick="closePopup()" class="mt-4 bg-gray-300 hover:bg-gray-400 px-6 py-2 rounded-full">Close</button>
+        <p class="text-[#0f2b50]">We truly appreciate your support ❤️</p>
+        <button onclick="closePopup()" class="mt-4 bg-[#f9f4e7] hover:bg-[#e0dbd0] px-6 py-2 rounded-full text-[#0f2b50]">Close</button>
       </div>
   
     </div>
 </div>
   
-  <script>
-    let timerInterval;
-  
-    function openPopup() {
-      document.getElementById('donatePopup').classList.remove('hidden');
-      document.getElementById('step1').classList.remove('hidden');
-      document.getElementById('step2').classList.add('hidden');
-      document.getElementById('step3').classList.add('hidden');
-    }
-  
-    function closePopup() {
-      document.getElementById('donatePopup').classList.add('hidden');
-      clearInterval(timerInterval);
-    }
-  
-    function goToStep2() {
-        const amount = document.getElementById("donationAmount").value;
-        if (!amount) {
-            alert("Please enter a donation amount.");
-            return;
-        }
+<script>
+  let timerInterval;
 
-        document.getElementById('step1').classList.add('hidden');
-        document.getElementById('step2').classList.remove('hidden');
+  function openPopup() {
+    document.getElementById('donatePopup').classList.remove('hidden');
+    document.getElementById('step1').classList.remove('hidden');
+    document.getElementById('step2').classList.add('hidden');
+    document.getElementById('step3').classList.add('hidden');
+  }
 
-        fetch(`/generate-promptpay-qr/?amount=${amount}`)
-            .then(res => res.json())
-            .then(data => {
-            document.getElementById("qrImageContainer").innerHTML = `
-                <img src="data:image/png;base64,${data.qr}" class="w-40 mx-auto" />
-                `;
-            });
+  function closePopup() {
+    document.getElementById('donatePopup').classList.add('hidden');
+    clearInterval(timerInterval);
+  }
 
-        startCountdown(5 * 60);
-        }
-  
-    function submitDonation() {
-      const formData = new FormData();
-      formData.append("donor_name", document.getElementById("donorName").value);
-      formData.append("email", document.getElementById("email").value);
-      formData.append("payment_method", document.getElementById("paymentMethod").value);
-      formData.append("amount", document.getElementById("donationAmount").value);
-      formData.append("message", document.getElementById("message").value);
-      formData.append("slip_image", document.getElementById("slipImage").files[0]);
-  
-      fetch("/donate/general/", {
-        method: "POST",
-        headers: {
-            "X-CSRFToken": csrftoken  // ✅ ใช้จาก cookie
-        },
-        body: formData
-    })
-        .then(res => {
-        if (res.ok) {
-            showStep3();
-        } else {
-            res.json().then(data => alert("❌ " + data.error));
-        }
-    });
-    }
-  
-    function showStep3() {
-      clearInterval(timerInterval);
-      document.getElementById('step2').classList.add('hidden');
-      document.getElementById('step3').classList.remove('hidden');
-    }
-  
-    function startCountdown(seconds) {
-      let remaining = seconds;
-      timerInterval = setInterval(() => {
-        const minutes = String(Math.floor(remaining / 60)).padStart(2, '0');
-        const secs = String(remaining % 60).padStart(2, '0');
-        document.getElementById('countdown').textContent = `${minutes}:${secs}`;
-        if (--remaining < 0) {
-          clearInterval(timerInterval);
-          document.getElementById('countdown').textContent = "Expired";
-        }
-      }, 1000);
-    }
+  function goToStep2() {
+      const amount = document.getElementById("donationAmount").value;
+      if (!amount) {
+          alert("Please enter a donation amount.");
+          return;
+      }
 
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== "") {
-            const cookies = document.cookie.split(";");
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                // ตรวจว่า cookie เริ่มด้วยชื่อที่ต้องการ
-                if (cookie.substring(0, name.length + 1) === name + "=") {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
-    const csrftoken = getCookie("csrftoken");
-  </script>
-  
+      document.getElementById('step1').classList.add('hidden');
+      document.getElementById('step2').classList.remove('hidden');
 
-    <!-- Right: Explanation Text -->
-    <div class="text-gray-700 leading-relaxed text-base" style="font-family: 'Lexend', sans-serif;">
-      <p class="mb-4">
-        Rescue Pawpal needs your help to perform as many sterilizations as we can and end the cycle of animal suffering. 
-        We also need your help to provide life-saving medical treatment, and rescue and care for animals in distress.
-      </p>
-      <p>
-        The charitable giving of animal lovers like you is the reason we are able to do this important work. 
-        With your support, we can put an end to stray overpopulation in Thailand. 
-        Donations can be made via PromptPay or credit card.
-      </p>
+      fetch(`/generate-promptpay-qr/?amount=${amount}`)
+          .then(res => res.json())
+          .then(data => {
+          document.getElementById("qrImageContainer").innerHTML = `
+              <img src="data:image/png;base64,${data.qr}" class="w-40 mx-auto" />
+              `;
+          });
 
-      <h3 class="text-2xl font-semibold text-[#8d6e63] mb-4" style="font-family: 'Lexend', sans-serif;">Real Impact Stories</h3>
+      startCountdown(5 * 60);
+      }
+
+  function submitDonation() {
+    const formData = new FormData();
+    formData.append("donor_name", document.getElementById("donorName").value);
+    formData.append("email", document.getElementById("email").value);
+    formData.append("payment_method", document.getElementById("paymentMethod").value);
+    formData.append("amount", document.getElementById("donationAmount").value);
+    formData.append("message", document.getElementById("message").value);
+    formData.append("slip_image", document.getElementById("slipImage").files[0]);
+
+    fetch("/donate/general/", {
+      method: "POST",
+      headers: {
+          "X-CSRFToken": csrftoken
+      },
+      body: formData
+  })
+      .then(res => {
+      if (res.ok) {
+          showStep3();
+      } else {
+          res.json().then(data => alert("❌ " + data.error));
+      }
+  });
+  }
+
+  function showStep3() {
+    clearInterval(timerInterval);
+    document.getElementById('step2').classList.add('hidden');
+    document.getElementById('step3').classList.remove('hidden');
+  }
+
+  function startCountdown(seconds) {
+    let remaining = seconds;
+    timerInterval = setInterval(() => {
+      const minutes = String(Math.floor(remaining / 60)).padStart(2, '0');
+      const secs = String(remaining % 60).padStart(2, '0');
+      document.getElementById('countdown').textContent = `${minutes}:${secs}`;
+      if (--remaining < 0) {
+        clearInterval(timerInterval);
+        document.getElementById('countdown').textContent = "Expired";
+      }
+    }, 1000);
+  }
+
+  function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== "") {
+          const cookies = document.cookie.split(";");
+          for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              if (cookie.substring(0, name.length + 1) === name + "=") {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
+  const csrftoken = getCookie("csrftoken");
+</script>
+
+<!-- Right: Explanation Text -->
+<div class="text-[#0f2b50] leading-relaxed text-base mt-12 max-w-3xl mx-auto px-4">
+  <p class="mb-4">
+    Rescue Pawpal needs your help to perform as many sterilizations as we can and end the cycle of animal suffering. 
+    We also need your help to provide life-saving medical treatment, and rescue and care for animals in distress.
+  </p>
+  <p>
+    The charitable giving of animal lovers like you is the reason we are able to do this important work. 
+    With your support, we can put an end to stray overpopulation in Thailand. 
+    Donations can be made via PromptPay or credit card.
+  </p>
+
+  <h3 class="text-2xl font-semibold text-[#0f2b50] mt-8 mb-4" style="font-family: 'Lexend', sans-serif;">Real Impact Stories</h3>
 
   <!-- Swiper -->
   <div class="swiper caseSwiper w-full max-w-lg">
@@ -260,12 +258,12 @@
 
       <!-- Case 1 -->
       <div class="swiper-slide">
-        <div class="bg-white shadow-md rounded-xl overflow-hidden">
-          <img src="{% static 'case1.jpg' %}" alt="Jamook Before & After" class="w-full h-72 object-cover">
-          <div class="p-4">
-            <p class="font-semibold text-[#523a28] mb-2">Jimmy’s Journey</p>
-            <details class="text-sm text-gray-700">
-              <summary class="cursor-pointer text-[#d55e00] font-medium">Read Story</summary>
+        <div class="bg-[#f9f4e7] shadow-md rounded-xl overflow-hidden">
+          <img src="{% static 'case1.jpg' %}" alt="Jamook Before & After" class="w-full h-72 object-cover rounded-t-xl">
+          <div class="p-4 text-[#0f2b50]">
+            <p class="font-semibold mb-2">Jimmy’s Journey</p>
+            <details class="text-sm">
+              <summary class="cursor-pointer text-[#0f2b50] font-medium">Read Story</summary>
               <p class="mt-2">
                 Jamook was found dumped on the side of the road. Half of his face was eaten by maggots.
                 With medical help and your donations, he recovered and found a loving foster home.
@@ -277,12 +275,12 @@
 
       <!-- Case 2 -->
       <div class="swiper-slide">
-        <div class="bg-white shadow-md rounded-xl overflow-hidden">
-          <img src="{% static 'case2.jpg' %}" alt="Another Rescue" class="w-full h-72 object-cover">
-          <div class="p-4">
-            <p class="font-semibold text-[#8d6e63] mb-2">Momo’s Transformation</p>
-            <details class="text-sm text-gray-700">
-              <summary class="cursor-pointer text-[#d55e00] font-medium">Read Story</summary>
+        <div class="bg-[#f9f4e7] shadow-md rounded-xl overflow-hidden">
+          <img src="{% static 'case2.jpg' %}" alt="Another Rescue" class="w-full h-72 object-cover rounded-t-xl">
+          <div class="p-4 text-[#0f2b50]">
+            <p class="font-semibold mb-2">Momo’s Transformation</p>
+            <details class="text-sm">
+              <summary class="cursor-pointer text-[#0f2b50] font-medium">Read Story</summary>
               <p class="mt-2">
                 Momo was rescued with severe mange and eye infection. After weeks of treatment,
                 she turned into a joyful and playful dog again.
@@ -294,10 +292,9 @@
 
     </div>
     <!-- Swiper buttons -->
-    <div class="swiper-button-next text-[#8d6e63]"></div>
-    <div class="swiper-button-prev text-[#8d6e63]"></div>
+    <div class="swiper-button-next text-[#0f2b50]"></div>
+    <div class="swiper-button-prev text-[#0f2b50]"></div>
   </div>
-    </div>   
 </div>
 
 <!-- Swiper Script -->
@@ -316,6 +313,7 @@
       },
     });
 </script>
+
 <!-- Sync radio with input -->
 <script>
     document.querySelectorAll('input[name="quickAmount"]').forEach(radio => {
@@ -332,18 +330,17 @@
 </script>
 
 <!-- Section 2: Thank you! -->
-<section class="text-center py-12 px-6 bg-[#fff5dd]">
-    <h2 class="text-3xl font-bold text-[#523a28] mb-4" style="font-family: 'Lexend', sans-serif;">Your donation makes a difference</h2>
-    <p class="text-[#6b4c3b] mb-6 max-w-2xl mx-auto">
+<section class="text-center py-12 px-6 bg-[#f9f4e7] mt-12">
+    <h2 class="text-3xl font-bold text-[#0f2b50] mb-4" style="font-family: 'Lexend', sans-serif;">Your donation makes a difference</h2>
+    <p class="text-[#0f2b50] mb-6 max-w-2xl mx-auto">
       We rescue stray dogs and cats, give them medical care and help them find loving homes. 
       Every donation helps save lives and cover treatment costs. Thank you!
     </p>
 </section>
-  
 
 <!-- Medical Sponsorship Horizontal Scroll Section -->
 <section class="mt-16">
-    <h2 class="text-3xl font-bold text-[#523a28] text-center mb-6" style="font-family: 'Lexend', sans-serif;">
+    <h2 class="text-3xl font-bold text-[#0f2b50] text-center mb-6" style="font-family: 'Lexend', sans-serif;">
       Animals Needing Medical Help
     </h2>
   
@@ -351,16 +348,16 @@
       <div class="swiper-wrapper">
         {% for sponsorship in sponsorships %}
           <div class="swiper-slide">
-            <div class="bg-white shadow-md rounded-xl overflow-hidden w-80">
-              <img src="{{ sponsorship.pet.image.url }}" alt="{{ sponsorship.pet.name }}" class="h-48 w-full object-cover">
-              <div class="p-4">
-                <h3 class="font-bold text-lg text-[#d55e00] mb-1">{{ sponsorship.pet.name }}</h3>
-                <p class="text-sm text-gray-700 mb-1">Goal: ฿{{ sponsorship.goal_amount|floatformat:0 }}</p>
+            <div class="bg-[#f9f4e7] shadow-md rounded-xl overflow-hidden w-80">
+              <img src="{{ sponsorship.pet.image.url }}" alt="{{ sponsorship.pet.name }}" class="h-48 w-full object-cover rounded-t-xl">
+              <div class="p-4 text-[#0f2b50]">
+                <h3 class="font-bold text-lg mb-1">{{ sponsorship.pet.name }}</h3>
+                <p class="text-sm mb-1">Goal: ฿{{ sponsorship.goal_amount|floatformat:0 }}</p>
   
                 <!-- Progress Bar -->
                 <div class="mb-2">
                   <div class="relative w-full bg-gray-200 h-3 rounded-full overflow-hidden">
-                    <div class="absolute left-0 top-0 h-full bg-[#6d9f71]" style="width: {{ sponsorship.get_progress_percent }}%;"></div>
+                    <div class="absolute left-0 top-0 h-full bg-[#0f2b50]" style="width: {{ sponsorship.get_progress_percent }}%;"></div>
                   </div>
                   <p class="text-xs text-right text-gray-500 mt-1">
                     {{ sponsorship.get_progress_percent }}% funded
@@ -368,7 +365,7 @@
                 </div>
   
                 <!-- Button -->
-                <a href="{% url 'sponsorship_detail' sponsorship.id %}" class="mt-2 inline-block w-full bg-[#6d9f71] text-white text-center py-2 rounded-full font-semibold hover:bg-[#51865b] transition">
+                <a href="{% url 'sponsorship_detail' sponsorship.id %}" class="mt-2 inline-block w-full bg-[#0f2b50] text-[#f9f4e7] text-center py-2 rounded-full font-semibold hover:bg-[#0d2745] transition">
                   Support this Pet
                 </a>
               </div>
@@ -378,8 +375,8 @@
       </div>
   
       <!-- Navigation buttons -->
-      <div class="swiper-button-next text-[#8d6e63]"></div>
-      <div class="swiper-button-prev text-[#8d6e63]"></div>
+      <div class="swiper-button-next text-[#0f2b50]"></div>
+      <div class="swiper-button-prev text-[#0f2b50]"></div>
     </div>
 </section>
 
