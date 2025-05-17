@@ -2,635 +2,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% block title %}PawPal{% endblock %}</title>
-    <!-- Tailwind CSS CDN -->
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Titan One -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Canva+Sans:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Canva+Sans:wght@400;700&family=Sarabun:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
     <style>
-
-    /* Font */
-    
-
-    /* Animation */
-    @keyframes gradient-x {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-    }
-    .animate-gradient-x {
-    background-size: 300% 300%;
-    animation: gradient-x 10s ease infinite;
-    }
-
-    @keyframes cloudFloat {
-        0%   { transform: translateX(0); }
-        100% { transform: translateX(100vw); }
-    }
-    .animate-cloud {
-        animation: cloudFloat 50s linear infinite;
-    }
-
-    @keyframes catWalk {
-        0%   { right: -150px; bottom: 0; transform: translateY(); }
-        50%  { transform: translateY(0); } /* กระโดดขึ้นเล็กน้อย */
-        100% { right: 100%; bottom: 0; transform: translateY(0); }
-    }
-
-    .animate-cat-walk {
-        animation: catWalk 20s linear infinite;
-        position: absolute;
-        height: 80px;
-    }
-
-    @keyframes dogWalk {
-        0%   { right: -200px; bottom: 0; transform: translateY(0); }
-        50%  { transform: translateY(-10px); }
-        100% { right: 100%; bottom: 0; transform: translateY(0); }
-    }
-    .animate-dog-walk {
-        animation: dogWalk 24s linear infinite;
-        position: absolute;
-        height: 80px;
-    }
-
-
-    /* General */
-    body {
+      body {
         font-family: 'Quicksand', sans-serif;
         margin: 0;
         padding: 0;
         background-color: #f0f0f0;
         color: #0f2b50;
-    }
-      /* ปรับสีพื้นหลัง Navbar เป็นครีม-เบจ */
-    nav {
-          background-color: #f9f4e7;
-          box-shadow: none; /* ลบเงา */
-          color: #0f2b50;
-    }
-
-      /* ลิงก์ใน navbar สีฟ้าน้ำทะเลเข้ม */
-    nav a {
-          color: #0f2b50;
-          text-decoration: none;
-          transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-      /* ลิงก์ใน navbar เมื่อ hover เปลี่ยนพื้นหลังเป็นฟ้าน้ำทะเลเข้ม และข้อความสีครีม-เบจ */
-    nav a:hover {
-          background-color: #0f2b50;
-          color: #f9f4e7;
-          border-radius: 0.375rem; /* มุมโค้งแบบ rounded-md */
-    }
-
-      /* ไอคอน svg หรือ img ใน navbar ให้เป็นสีน้ำเงิน */
-    nav a svg, nav a img {
-          color: #0f2b50;
-          fill: #0f2b50;
-          transition: color 0.3s ease;
-    }
-    nav a:hover svg, nav a:hover img {
-          color: #f9f4e7;
-          fill: #f9f4e7;
+      }
+      /* Navbar */
+      nav {
+        background-color: #f9f4e7; /* ครีมเบจ */
+        box-shadow: none;
+        color: #0f2b50;
+      }
+      /* เมนูกลาง: background ครีมเบจ + ตัวหนา + สีน้ำเงินเข้ม */
+      .menu-center {
+        background-color: #f9f4e7;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+      }
+      .menu-center a {
+        font-weight: 700;
+        color: #0f2b50;
+        padding: 0.75rem 1rem;
+        border-radius: 0.375rem;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .menu-center a:hover {
+        background-color: #0f2b50;
+        color: #f9f4e7;
       }
 
-    .container {
+      /* ไอคอน SVG, img */
+      nav a svg, nav a img {
+        color: #0f2b50;
+        fill: #0f2b50;
+        transition: color 0.3s ease;
+      }
+      nav a:hover svg, nav a:hover img {
+        color: #f9f4e7;
+        fill: #f9f4e7;
+      }
+
+      .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 20px;
         box-sizing: border-box;
-    }
-    h1, h2 {
-        font-family: 'Lexend', sans-serif;
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(135deg, #f9f4e7, #f0e9d2);
         color: #0f2b50;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    /* ส่วนอื่นๆ ให้สีตัวอักษรเข้ากับธีม */
-    p, li, a {
-          font-family: 'Sarabun', sans-serif;
-          color: #0f2b50;
-    }
-    a:hover {
-          color: #d55e00; /* สีส้มเดิมเวลาลิงก์ hover */
-          text-decoration: underline;
-    }
-
-    /* Footer Styles */
-    footer {
-        background-color: #f8f0e3;
-        color: #8d6e63;
         padding: 40px 0;
-        text-align: center;
         margin-top: 20px;
-        border-top: 1px solid #ddd;
-        /* Gradient background */
-        background: linear-gradient(135deg, #f8f0e3, #e0f2f1);
-    }
-
-    /* Footer Content */
-    .footer-content {
+        border-top: 1px solid #ccc;
+      }
+      .footer-content {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
-        flex-wrap: wrap;
-        padding: 20px;
-        background-color: transparent;  /* ตั้งสีพื้นหลังเป็นสีขาว */
-        font-family: Arial, sans-serif;
-    }
-
-    /* การจัดการของแต่ละ section */
-    .footer-section {
-        flex: 1 1 200px;
-        margin: 10px;
-    }
-
-    .footer-section h3 {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-
-    .footer-section ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    .footer-section ul li {
-        margin-bottom: 0px;  /* ลดระยะห่างระหว่างรายการ */
-    }
-
-    .footer-section ul li a {
-        text-decoration: none;
-        color: #b78c67;
-        font-size: 16px;   /* เพิ่มขนาดตัวอักษรเล็กน้อย */
-    }
-
-    .footer-section ul li a:hover {
-        color: #794b35;
-    }
-
-    /* Social Media */
-    .social-icons-list {
-        display: flex;
-        gap: 15px; /* เพิ่มช่องว่างระหว่างไอคอน */
-        margin-top: 10px;
-    }
-
-    .social-icons-list a {
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        background-color: #3b5998;  /* สีพื้นหลังของวงกลม */
-        color: white;
-        border-radius: 50%;
-        text-align: center;
-        line-height: 40px;
-        font-size: 18px;  /* ขนาดของไอคอน */
-        transition: background-color 0.3s ease, transform 0.3s ease; /* เพิ่มเอฟเฟกต์ */
-    }
-
-    .social-icons-list a:hover {
-        background-color: #1da1f2; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
-        transform: scale(1.1);  /* ขยายขนาดเมื่อ hover */
-    }
-
-    /* Payment Methods */
-    .payment-methods img {
-        width: 40px;
-        margin-right: 10px;
-    }
-
-    /* Copyright */
-    .copyright {
-        text-align: center;
-        background-color: #333;
-        color: white;
-        padding: 10px;
-        font-size: 14px;
-        margin-top: 20px;
-    }
-
-
-
-    .footer-content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: flex-start;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    .footer-section {
-        margin-bottom: 30px;
-        width: 100%;
-    }
-
-    .footer-section h3 {
+        padding: 20px;
+        font-family: 'Sarabun', sans-serif;
+      }
+      .footer-section {
+        flex: 1 1 200px;
+        margin: 10px;
+      }
+      .footer-section h3 {
         font-family: 'Lexend', sans-serif;
         font-size: 24px;
         margin-bottom: 15px;
-        color: #8d6e63;
-        /* Added text shadow */
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    }
-
-    .footer-section ul {
+        color: #0f2b50;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      }
+      .footer-section ul {
         list-style: none;
         padding: 0;
         margin: 0;
-    }
-
-    .footer-section ul li {
-        margin-bottom: 18px;
-        font-size: 25px;
-        font-weight: bold;
-    }
-
-    .footer-section a {
-        color: #8d6e63;
+      }
+      .footer-section ul li {
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+      .footer-section ul li a {
+        color: #0f2b50;
         text-decoration: none;
         font-size: 16px;
-        /* Added transition */
         transition: color 0.3s ease;
-    }
-
-    .footer-section a:hover {
+      }
+      .footer-section ul li a:hover {
         color: #d55e00;
-        /* Underline and bold on hover */
         text-decoration: underline;
         font-weight: bold;
-    }
-
-    .contact-info p {
-        margin-bottom: 10px;
-        font-size: 16px;
-        font-weight: bold;;
-    }
-
-
-
-    social-icons2 p{
-        margin-bottom: 10px;
-        font-size: 16px;
-        font-weight: bold;;
-    }
-
-    .social-icons2 {
-        display: flex;
-        gap: 15px;
-        justify-content: center;
-        margin-top: 15px;
-        flex-direction: column;  /* ทำให้ไอคอนเรียงในแนวตั้ง */
-        align-items: left;     /* จัดตำแหน่งให้ไอคอนอยู่กลางในแนวนอน */
-        gap: 10px; 
-    }
-
-
-    .social-icons {
-        display: flex;
-        gap: 15px;
-        justify-content: center;
-        margin-top: 15px;
-        flex-direction: column;  /* ทำให้ไอคอนเรียงในแนวตั้ง */
-        align-items: left;     /* จัดตำแหน่งให้ไอคอนอยู่กลางในแนวนอน */
-        gap: 10px; 
-    }
-
-    .social-icons a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: #c99f89;
-        color: white;
-        font-size: 20px;
-        transition: background-color 0.3s ease;
-        text-decoration: none;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        /* Added animation */
-        animation: pulse 2s infinite;
-    }
-
-    .social-icons a:hover {
-        background-color: #c99f89;
-        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-        /* Stop animation on hover */
-        animation: none;
-    }
-
-    .copyright {
-        margin-top: 30px;
-        font-size: 14px;
-        color: #8d6e63;
-        border-top: 1px solid #ddd;
-        padding-top: 10px;
-        /* Background with opacity */
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-
-    /* Responsive adjustments */
-    @media (min-width: 768px) {
-        .footer-section {
-            width: 50%;
-            text-align: left;
-        }
-    }
-
-    @media (min-width: 992px) {
-        .footer-section {
-            width: 25%;
-            /* Added text alignment for larger screens */
-            text-align: left;
-        }
-        .footer-content {
-            justify-content: space-around;
-        }
-    }
-
-    /* Added styles for newsletter subscription */
-    .newsletter-section {
+      }
+      /* Newsletter */
+      .newsletter-section {
         width: 100%;
-        margin-bottom: 30px;
         text-align: center;
-    }
-
-    .newsletter-section h3 {
+        margin-top: 30px;
+      }
+      .newsletter-section h3 {
         font-size: 24px;
         margin-bottom: 15px;
-        color: #8d6e63;
-        /* Added text shadow */
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    }
-
-    .newsletter-form {
+        color: #0f2b50;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      }
+      .newsletter-form {
         display: flex;
-        flex-direction: column;          /* เรียงไอเทมในแนวตั้ง */
-        align-items: center;             /* จัดตรงกลางในแนวนอน */
-        justify-content: center;         /* จัดตรงกลางในแนวตั้ง */
-        /* height: 100vh;                   ใช้ความสูงของหน้าจอทั้งหมด */ */
-        margin: 0;                       /* ลบ margin ที่อาจจะมี */
-    }
-
-    .newsletter-input {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+      }
+      .newsletter-input {
         padding: 10px;
-        width: 250px;                    /* ขนาดความกว้างของช่องกรอกอีเมล์ */
-        margin-bottom: 10px;             /* เพิ่มช่องว่างระหว่างช่องกรอกกับปุ่ม */
-        border: 1px solid #ccc;         /* กรอบของ input */
-        border-radius: 4px;              /* ทำมุมของ input ให้โค้ง */
-        font-size: 16px;                 /* ขนาดตัวอักษรใน input */
-    }
-
-    .newsletter-submit {
+        width: 250px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+      .newsletter-submit {
         padding: 10px 20px;
-        background-color: #9e7240;      /* สีพื้นหลังของปุ่ม */
-        color: white;
+        background-color: #0f2b50;
+        color: #f9f4e7;
         border: none;
-        border-radius: 4px;             /* ทำมุมของปุ่มให้โค้ง */
+        border-radius: 4px;
         cursor: pointer;
         font-size: 16px;
         transition: background-color 0.3s ease;
-    }
-
-    .newsletter-submit:hover {
+      }
+      .newsletter-submit:hover {
         background-color: #ad6949;
-        /* Increased shadow on hover */
-        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-    }
-
-    .newsletter-input:focus {
+        box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+      }
+      .newsletter-input:focus {
         outline: none;
         border-color: #c7c7c7;
-        box-shadow: 0 0 5px rgba(133, 133, 133, 0.3);
-    }
-
-    @media (max-width: 768px) {
+        box-shadow: 0 0 5px rgba(133,133,133,0.3);
+      }
+      @media (max-width: 768px) {
         .newsletter-form {
-            flex-wrap: wrap;
+          flex-wrap: wrap;
         }
         .newsletter-input {
-            border-radius: 10px 10px 0 0;
-            margin-bottom: 10px;
+          border-radius: 10px 10px 0 0;
+          margin-bottom: 10px;
         }
         .newsletter-submit {
-            border-radius: 0 0 10px 10px;
+          border-radius: 0 0 10px 10px;
         }
-    }
-
-    /* Keyframes for pulse animation */
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
-    }
+      }
     </style>
 </head>
-<body class="flex flex-col min-h-screen" "style="background-color: #f0f0f0;">
+<body class="flex flex-col min-h-screen" style="background-color: #f0f0f0;">
 
-    <!-- Navbar -->
-    <nav class="bg-white shadow-md sticky top-0 z-50 text-[#8d6e63]">
-        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-          
-          <!-- Left: Logo -->
-        
-            <!-- <a href="{% url 'homepage' %}" class="flex items-center space-x-2">
-                <img src="{% static 'logo.png' %}"
-                alt="PawPal Logo"
-                class="w-16 h-16 md:w-20 md:h-20 object-contain rounded-xl shadow-sm" /> -->
-              <!-- <span class="text-xl text-[#d55e00]" style="font-family: 'Titan One', cursive;">PawPal</span> -->
-               <img src="{% static 'logopawpal-removebg-preview.png' %}"
-                alt="PawPal Logo"
-                class="w-16 h-16 md:w-20 md:h-20 object-contain rounded-xl shadow-sm" />
-            <!-- </a> -->
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md sticky top-0 z-50 text-[#8d6e63]">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
 
-          <!-- Hamburger button (mobile only) -->
-          <button class="md:hidden text-[#8d6e63] focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-      
-          <!-- Center: Menu (desktop) -->
-          <div class="hidden md:flex items-center space-x-6 text-sm md:text-base font-medium">
-            <a href="{% url 'homepage' %}" class="hover:bg-[#8d6e63] hover:text-white px-3 py-5 rounded transition">Home</a>
-            <a href="{% url 'adopt' %}" class="hover:bg-[#d99a56] hover:text-white px-3 py-5 rounded transition">Adopt</a>
-            <a href="{% url 'donate' %}" class="hover:bg-[#d99a56] hover:text-white px-3 py-5 rounded transition">Donate</a>
-            <a href="{% url 'about' %}" class="hover:bg-[#d99a56] hover:text-white px-3 py-5 rounded transition">About Us</a>
-          </div>
-      
-          <!-- Right: Icons -->
-          <div class="hidden md:flex items-center space-x-4">
-            
-            <!-- Favorite Icon -->
-            <a href="{% url 'favorites' %}" class="group transition duration-200">
-                <img src="{% static 'favorite-home.png' %}" alt="PawPal Icon" class="w-10 h-10 transition duration-200">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"
-                     class="w-10 h-10 transition duration-200"> -->
-                  <!-- บ้าน (มีขอบ)
-                  <path d="M8 28 L32 8 L56 28 V56 H36 V40 H28 V56 H8 Z"
-                        fill="#d99a56" stroke="#5a463e" stroke-width="2"
-                        class="group-hover:fill-[#c6302c] transition" /> -->
-                  <!-- หัวใจใหญ่กลางบ้าน (มีขอบ) -->
-                  <!-- <path d="M32 32 
-                           C28 28, 22 28, 22 34 
-                           C22 40, 32 46, 32 46 
-                           C32 46, 42 40, 42 34 
-                           C42 28, 36 28, 32 32 Z"
-                        fill="#c6302c" stroke="#a62826" stroke-width="1.5"
-                        class="group-hover:fill-[#d99a56] transition" /> -->
-                    <!-- </svg> -->
+      <!-- Left: Logo -->
+      <img src="{% static 'logopawpal-removebg-preview.png' %}" alt="PawPal Logo" class="w-16 h-16 md:w-20 md:h-20 object-contain rounded-xl shadow-sm" />
 
-            </a>
-            
-            <!-- Profile icon -->
-             <a href="{% url 'login' %}" class="text-[#8d6e63] hover:text-[#c6302c]">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
-                </svg>
-            </a>
-          </div>
-        </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
-            <a href="{% url 'homepage' %}" class="block py-2 text-[#8d6e63] hover:bg-[#8d6e63] hover:text-white rounded-md px-3">Home</a>
-            <a href="{% url 'adopt' %}" class="block py-2 text-[#8d6e63] hover:bg-[#8d6e63] hover:text-white rounded-md px-3">Adopt</a>
-            <a href="{% url 'donate' %}" class="block py-2 text-[#8d6e63] hover:bg-[#8d6e63] hover:text-white rounded-md px-3">Donate</a>
-            <a href="{% url 'about' %}" class="block py-2 text-[#8d6e63] hover:bg-[#8d6e63] hover:text-white rounded-md px-3">About Us</a>
-            <div class="flex space-x-4 mt-3 px-3">
-            <a href="{% url 'favorites' %}" class="text-[#d99a56] hover:text-[#c6302c]">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-6 h-6">
-                <path d="M8 28 L32 8 L56 28 V56 H36 V40 H28 V56 H8 Z" fill="#8d6e63" stroke="#5a463e" stroke-width="2" />
-                <path d="M32 32 C28 28, 22 28, 22 34 C22 40, 32 46, 32 46 C32 46, 42 40, 42 34 C42 28, 36 28, 32 32 Z" fill="#c6302c" stroke="#a62826" stroke-width="1.5" />
-                </svg>
-            </a>
-            <a href="{% url 'login' %}" class="text-[#8d6e63] hover:text-[#c6302c]">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
-                </svg>
-            </a>
-            </div>
-        </div>
-    </nav>
+      <!-- Hamburger button (mobile only) -->
+      <button class="md:hidden text-[#8d6e63] focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
 
-    <!-- Page Content -->
-    <main class="container mx-auto px-4 py-8  "style="background-color: #f0f0f0;">
-        {% block content %}
-        {% endblock %}
-    </main>
+      <!-- Center: Menu (desktop) -->
+      <div class="hidden md:flex items-center space-x-6 text-sm md:text-base font-medium menu-center">
+        <a href="{% url 'homepage' %}">Home</a>
+        <a href="{% url 'adopt' %}">Adopt</a>
+        <a href="{% url 'donate' %}">Donate</a>
+        <a href="{% url 'about' %}">About Us</a>
+      </div>
 
-
-<!-- ปรับสีพื้นหลัง footer เป็นครีม-เบจ -->
-<footer style="background: linear-gradient(135deg, #f9f4e7, #f0e9d2); color: #0f2b50; padding: 40px 0; margin-top: 20px; border-top: 1px solid #ccc;">
-    <div class="footer-content" style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 20px; font-family: 'Sarabun', sans-serif;">
-        <!-- Social -->
-        <div class="footer-section social-icons" style="flex: 1 1 200px; margin: 10px;">
-            <h3 style="font-family: 'Lexend', sans-serif; font-size: 24px; margin-bottom: 15px; color: #0f2b50;">Pet Shop</h3>
-            <p style="font-size: 16px; font-weight: 500;">Sed viverra eget et malesuada. Pellentesque mattis libero viverra.</p>
-            <div class="social-icons-list" style="display: flex; gap: 15px; margin-top: 10px;">
-                <a href="#" title="Facebook" style="width:40px; height:40px; background:#0f2b50; color:#f9f4e7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background-color 0.3s ease;">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" title="Instagram" style="width:40px; height:40px; background:#0f2b50; color:#f9f4e7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background-color 0.3s ease;">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" title="Twitter" style="width:40px; height:40px; background:#0f2b50; color:#f9f4e7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background-color 0.3s ease;">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- Company -->
-        <div class="footer-section" style="flex: 1 1 200px; margin: 10px;">
-            <h3 style="font-family: 'Lexend', sans-serif; font-size: 24px; margin-bottom: 15px; color: #0f2b50;">Company</h3>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">About Us</a></li>
-                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Blog</a></li>
-                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Gift Cards</a></li>
-                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Careers</a></li>
-            </ul>
-        </div>
-
-        <!-- Useful Links -->
-        <div class="footer-section" style="flex: 1 1 200px; margin: 10px;">
-            <h3 style="font-family: 'Lexend', sans-serif; font-size: 24px; margin-bottom: 15px; color: #0f2b50;">Useful Links</h3>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">New Products</a></li>
-                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Best Sellers</a></li>
-                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Discount</a></li>
-                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">F.A.Q</a></li>
-            </ul>
-        </div>
-
-        <!-- Customer Service -->
-        <div class="footer-section" style="flex: 1 1 200px; margin: 10px;">
-            <h3 style="font-family: 'Lexend', sans-serif; font-size: 24px; margin-bottom: 15px; color: #0f2b50;">Customer Service</h3>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Contact Us</a></li>
-                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Shipping</a></li>
-                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Returns</a></li>
-                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Order Tracking</a></li>
-            </ul>
-        </div>
-
-        <!-- Store Info -->
-        <div class="footer-section store-info" style="flex: 1 1 200px; margin: 10px;">
-            <h3 style="font-family: 'Lexend', sans-serif; font-size: 24px; margin-bottom: 15px; color: #0f2b50;">Store</h3>
-            <p style="font-weight: 600;">8592 Fairground St, Tallahassee, FL 32303</p>
-            <p style="font-weight: 600;">+775 378 6348</p>
-            <p><a href="mailto:rgarton@outlook.com" style="color: #0f2b50; text-decoration: none; font-weight: 600;">rgarton@outlook.com</a></p>
-        </div>
+      <!-- Right: Icons -->
+      <div class="hidden md:flex items-center space-x-4">
+        <!-- Favorite Icon -->
+        <a href="{% url 'favorites' %}" class="group transition duration-200">
+          <img src="{% static 'favorite-home.png' %}" alt="PawPal Icon" class="w-10 h-10 transition duration-200" />
+        </a>
+        <!-- Profile icon -->
+        <a href="{% url 'login' %}" class="text-[#8d6e63] hover:text-[#c6302c]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z" />
+          </svg>
+        </a>
+      </div>
     </div>
 
-    <!-- Newsletter -->
-    <div class="newsletter-section" style="width: 100%; text-align: center; margin-top: 30px;">
-        <h3 style="font-family: 'Lexend', sans-serif; font-size: 24px; margin-bottom: 15px; color: #0f2b50;">Subscribe to Our Newsletter</h3>
-        <form class="newsletter-form" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0;">
-            <input type="email" class="newsletter-input" placeholder="Enter your email"
-                style="padding: 10px; width: 250px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;" />
-            <button type="submit" class="newsletter-submit"
-                style="padding: 10px 20px; background-color: #0f2b50; color: #f9f4e7; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease;">
-                Subscribe
-            </button>
-        </form>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+      <a href="{% url 'homepage' %}" class="block py-2 text-[#8d6e63] hover:bg-[#8d6e63] hover:text-white rounded-md px-3">Home</a>
+      <a href="{% url 'adopt' %}" class="block py-2 text-[#8d6e63] hover:bg-[#8d6e63] hover:text-white rounded-md px-3">Adopt</a>
+      <a href="{% url 'donate' %}" class="block py-2 text-[#8d6e63] hover:bg-[#8d6e63] hover:text-white rounded-md px-3">Donate</a>
+      <a href="{% url 'about' %}" class="block py-2 text-[#8d6e63] hover:bg-[#8d6e63] hover:text-white rounded-md px-3">About Us</a>
+      <div class="flex space-x-4 mt-3 px-3">
+        <a href="{% url 'favorites' %}" class="text-[#d99a56] hover:text-[#c6302c]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-6 h-6">
+            <path d="M8 28 L32 8 L56 28 V56 H36 V40 H28 V56 H8 Z" fill="#8d6e63" stroke="#5a463e" stroke-width="2" />
+            <path d="M32 32 C28 28, 22 28, 22 34 C22 40, 32 46, 32 46 C32 46, 42 40, 42 34 C42 28, 36 28, 32 32 Z" fill="#c6302c" stroke="#a62826" stroke-width="1.5" />
+          </svg>
+        </a>
+        <a href="{% url 'login' %}" class="text-[#8d6e63] hover:text-[#c6302c]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <main class="container mx-auto px-4 py-8" style="background-color: #f0f0f0;">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section social-icons">
+        <h3>Pet Shop</h3>
+        <p>Sed viverra eget et malesuada. Pellentesque mattis libero viverra.</p>
+        <div class="social-icons-list" style="display: flex; gap: 15px; margin-top: 10px;">
+          <a href="#" title="Facebook" style="width:40px; height:40px; background:#0f2b50; color:#f9f4e7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background-color 0.3s ease;">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" title="Instagram" style="width:40px; height:40px; background:#0f2b50; color:#f9f4e7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background-color 0.3s ease;">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" title="Twitter" style="width:40px; height:40px; background:#0f2b50; color:#f9f4e7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background-color 0.3s ease;">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Gift Cards</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Useful Links</h3>
+        <ul>
+          <li><a href="#">New Products</a></li>
+          <li><a href="#">Best Sellers</a></li>
+          <li><a href="#">Discount</a></li>
+          <li><a href="#">F.A.Q</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Customer Service</h3>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Order Tracking</a></li>
+        </ul>
+      </div>
+      <div class="footer-section store-info">
+        <h3>Store</h3>
+        <p>8592 Fairground St, Tallahassee, FL 32303</p>
+        <p>+775 378 6348</p>
+        <p><a href="mailto:rgarton@outlook.com">rgarton@outlook.com</a></p>
+      </div>
     </div>
 
-    <!-- Copyright -->
-    <div class="copyright" style="text-align: center; padding: 15px 10px; background-color: #0f2b50; color: #f9f4e7; font-size: 14px; margin-top: 30px;">
-        © 2025 PawPal. All rights reserved.
+    <div class="newsletter-section">
+      <h3>Subscribe to Our Newsletter</h3>
+      <form class="newsletter-form">
+        <input
+          type="email"
+          class="newsletter-input"
+          placeholder="Enter your email"
+        />
+        <button type="submit" class="newsletter-submit">Subscribe</button>
+      </form>
     </div>
-</footer>
 
-
-
-
-
-
+    <div
+      class="copyright"
+      style="
+        text-align: center;
+        padding: 15px 10px;
+        background-color: #0f2b50;
+        color: #f9f4e7;
+        font-size: 14px;
+        margin-top: 30px;
+      "
+    >
+      © 2025 PawPal. All rights reserved.
+    </div>
+  </footer>
 </body>
 </html>
