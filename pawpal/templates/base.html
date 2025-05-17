@@ -24,6 +24,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
     <style>
 
     /* Font */
@@ -78,8 +84,39 @@
         margin: 0;
         padding: 0;
         background-color: #f0f0f0;
-        color: #ffffff;
+        color: #0f2b50;
     }
+      /* ปรับสีพื้นหลัง Navbar เป็นครีม-เบจ */
+    nav {
+          background-color: #f9f4e7;
+          box-shadow: none; /* ลบเงา */
+          color: #0f2b50;
+    }
+
+      /* ลิงก์ใน navbar สีฟ้าน้ำทะเลเข้ม */
+    nav a {
+          color: #0f2b50;
+          text-decoration: none;
+          transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+      /* ลิงก์ใน navbar เมื่อ hover เปลี่ยนพื้นหลังเป็นฟ้าน้ำทะเลเข้ม และข้อความสีครีม-เบจ */
+    nav a:hover {
+          background-color: #0f2b50;
+          color: #f9f4e7;
+          border-radius: 0.375rem; /* มุมโค้งแบบ rounded-md */
+    }
+
+      /* ไอคอน svg หรือ img ใน navbar ให้เป็นสีน้ำเงิน */
+    nav a svg, nav a img {
+          color: #0f2b50;
+          fill: #0f2b50;
+          transition: color 0.3s ease;
+    }
+    nav a:hover svg, nav a:hover img {
+          color: #f9f4e7;
+          fill: #f9f4e7;
+      }
 
     .container {
         max-width: 1200px;
@@ -89,21 +126,18 @@
     }
     h1, h2 {
         font-family: 'Lexend', sans-serif;
-        color: #8d6e63;
+        color: #0f2b50;
         text-align: center;
         margin-bottom: 20px;
     }
-    p {
-        font-family: 'Sarabun', sans-serif;
-        font-size: 16px;
-        line-height: 1.6;
-    }
-    a {
-        color: #ffffff;
-        text-decoration: none;
+    /* ส่วนอื่นๆ ให้สีตัวอักษรเข้ากับธีม */
+    p, li, a {
+          font-family: 'Sarabun', sans-serif;
+          color: #0f2b50;
     }
     a:hover {
-        text-decoration: underline;
+          color: #d55e00; /* สีส้มเดิมเวลาลิงก์ hover */
+          text-decoration: underline;
     }
 
     /* Footer Styles */
@@ -431,7 +465,7 @@
                 alt="PawPal Logo"
                 class="w-16 h-16 md:w-20 md:h-20 object-contain rounded-xl shadow-sm" /> -->
               <!-- <span class="text-xl text-[#d55e00]" style="font-family: 'Titan One', cursive;">PawPal</span> -->
-               <img src="{% static 'D:\TU\ปี3\mumu\dsi202_2025\static\cat-footprint.png' %}"
+               <img src="{% static 'logopawpal-removebg-preview.png' %}"
                 alt="PawPal Logo"
                 class="w-16 h-16 md:w-20 md:h-20 object-contain rounded-xl shadow-sm" />
             <!-- </a> -->
@@ -456,7 +490,7 @@
             
             <!-- Favorite Icon -->
             <a href="{% url 'favorites' %}" class="group transition duration-200">
-                <img src="{% static 'D:\TU\ปี3\mumu\dsi202_2025\static\favorite-home.png' %}" alt="PawPal Icon" class="w-10 h-10 transition duration-200">
+                <img src="{% static 'favorite-home.png' %}" alt="PawPal Icon" class="w-10 h-10 transition duration-200">
                 <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"
                      class="w-10 h-10 transition duration-200"> -->
                   <!-- บ้าน (มีขอบ)
@@ -512,74 +546,87 @@
     </main>
 
 
-   <footer>
-        <div class="footer-content">
-            <div class="footer-section social-icons">
-                <h3>Pet Shop</h3>
-                <p>Sed viverra eget et malesuada. Pellentesque mattis libero viverra.</p>
-                <div class="social-icons-list">
-                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-
-            <div class="footer-section">
-                <h3>Company</h3>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Gift Cards</a></li>
-                    <li><a href="#">Careers</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Useful Links</h3>
-                <ul>
-                    <li><a href="#">New Products</a></li>
-                    <li><a href="#">Best Sellers</a></li>
-                    <li><a href="#">Discount</a></li>
-                    <li><a href="#">F.A.Q</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Customer Service</h3>
-                <ul>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Order Tracking</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section store-info">
-                <h3>Store</h3>
-                <p>8592 Fairground St, Tallahassee, FL 32303</p>
-                <p>+775 378 6348</p>
-                <p><a href="mailto:rgarton@outlook.com">rgarton@outlook.com</a></p>
-                <!-- <div class="payment-methods">
-                    <img src="visa-logo.png" alt="Visa">
-                    <img src="mastercard-logo.png" alt="Mastercard">
-                    <img src="paypal-logo.png" alt="PayPal">
-                </div> -->
+<!-- ปรับสีพื้นหลัง footer เป็นครีม-เบจ -->
+<footer style="background: linear-gradient(135deg, #f9f4e7, #f0e9d2); color: #0f2b50; padding: 40px 0; margin-top: 20px; border-top: 1px solid #ccc;">
+    <div class="footer-content" style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 20px; font-family: 'Sarabun', sans-serif;">
+        <!-- Social -->
+        <div class="footer-section social-icons" style="flex: 1 1 200px; margin: 10px;">
+            <h3 style="font-family: 'Lexend', sans-serif; font-size: 24px; margin-bottom: 15px; color: #0f2b50;">Pet Shop</h3>
+            <p style="font-size: 16px; font-weight: 500;">Sed viverra eget et malesuada. Pellentesque mattis libero viverra.</p>
+            <div class="social-icons-list" style="display: flex; gap: 15px; margin-top: 10px;">
+                <a href="#" title="Facebook" style="width:40px; height:40px; background:#0f2b50; color:#f9f4e7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background-color 0.3s ease;">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" title="Instagram" style="width:40px; height:40px; background:#0f2b50; color:#f9f4e7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background-color 0.3s ease;">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" title="Twitter" style="width:40px; height:40px; background:#0f2b50; color:#f9f4e7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background-color 0.3s ease;">
+                    <i class="fab fa-twitter"></i>
+                </a>
             </div>
         </div>
 
-            <div class="newsletter-section">
-                <h3>Subscribe to Our Newsletter</h3>
-                <form class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Enter your email">
-                    <button type="submit" class="newsletter-submit">Subscribe </button>
-                </form>
-            </div>
+        <!-- Company -->
+        <div class="footer-section" style="flex: 1 1 200px; margin: 10px;">
+            <h3 style="font-family: 'Lexend', sans-serif; font-size: 24px; margin-bottom: 15px; color: #0f2b50;">Company</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">About Us</a></li>
+                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Blog</a></li>
+                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Gift Cards</a></li>
+                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Careers</a></li>
+            </ul>
         </div>
 
-        <div class="copyright">
-            © 2025 Pet Shop. All rights reserved.
+        <!-- Useful Links -->
+        <div class="footer-section" style="flex: 1 1 200px; margin: 10px;">
+            <h3 style="font-family: 'Lexend', sans-serif; font-size: 24px; margin-bottom: 15px; color: #0f2b50;">Useful Links</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">New Products</a></li>
+                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Best Sellers</a></li>
+                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Discount</a></li>
+                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">F.A.Q</a></li>
+            </ul>
         </div>
-    </footer>
+
+        <!-- Customer Service -->
+        <div class="footer-section" style="flex: 1 1 200px; margin: 10px;">
+            <h3 style="font-family: 'Lexend', sans-serif; font-size: 24px; margin-bottom: 15px; color: #0f2b50;">Customer Service</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Contact Us</a></li>
+                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Shipping</a></li>
+                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Returns</a></li>
+                <li style="margin-bottom: 10px; font-weight: 600;"><a href="#" style="color: #0f2b50; text-decoration: none;">Order Tracking</a></li>
+            </ul>
+        </div>
+
+        <!-- Store Info -->
+        <div class="footer-section store-info" style="flex: 1 1 200px; margin: 10px;">
+            <h3 style="font-family: 'Lexend', sans-serif; font-size: 24px; margin-bottom: 15px; color: #0f2b50;">Store</h3>
+            <p style="font-weight: 600;">8592 Fairground St, Tallahassee, FL 32303</p>
+            <p style="font-weight: 600;">+775 378 6348</p>
+            <p><a href="mailto:rgarton@outlook.com" style="color: #0f2b50; text-decoration: none; font-weight: 600;">rgarton@outlook.com</a></p>
+        </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="newsletter-section" style="width: 100%; text-align: center; margin-top: 30px;">
+        <h3 style="font-family: 'Lexend', sans-serif; font-size: 24px; margin-bottom: 15px; color: #0f2b50;">Subscribe to Our Newsletter</h3>
+        <form class="newsletter-form" style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0;">
+            <input type="email" class="newsletter-input" placeholder="Enter your email"
+                style="padding: 10px; width: 250px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;" />
+            <button type="submit" class="newsletter-submit"
+                style="padding: 10px 20px; background-color: #0f2b50; color: #f9f4e7; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease;">
+                Subscribe
+            </button>
+        </form>
+    </div>
+
+    <!-- Copyright -->
+    <div class="copyright" style="text-align: center; padding: 15px 10px; background-color: #0f2b50; color: #f9f4e7; font-size: 14px; margin-top: 30px;">
+        © 2025 PawPal. All rights reserved.
+    </div>
+</footer>
+
 
 
 
