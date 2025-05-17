@@ -178,11 +178,13 @@
 <body class="flex flex-col min-h-screen" style="background-color: #f0f0f0;">
 
   <!-- Navbar -->
-  <nav class="bg-white shadow-md sticky top-0 z-50 text-[#8d6e63]">
+  <nav class="shadow-md sticky top-0 z-50 text-[#8d6e63]" style="background-color: #f9f4e7;">
+
     <div class="container mx-auto px-4 py-3 flex items-center justify-between">
 
       <!-- Left: Logo -->
-      <img src="{% static 'logopawpal-removebg-preview.png' %}" alt="PawPal Logo" class="w-16 h-16 md:w-20 md:h-20 object-contain rounded-xl shadow-sm" />
+      <img src="{% static 'logopawpal-removebg-preview.png' %}" alt="PawPal Logo" class="w-16 h-16 md:w-20 md:h-20 object-contain rounded-full style="background-color: #f9f4e7;" />
+
 
       <!-- Hamburger button (mobile only) -->
       <button class="md:hidden text-[#8d6e63] focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
