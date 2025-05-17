@@ -67,33 +67,34 @@
 </style>
 {% endblock %}
 
-        </svg>
-      </button>
-    </div>
-    {% empty %}
-      <p class="text-gray-500 col-span-full text-center">No animals found.</p>
-    {% endfor %}
-  </div>
-</div>
+{% block content %}
 
-<!-- Pet Modal -->
-<div id="petModal" class="fixed inset-0 bg-black bg-opacity-60 z-50 hidden flex justify-center items-center">
-  <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative">
-    <button onclick="closePetModal()" class="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl">&times;</button>
-    <div id="petModalContent">
-      <!-- JS dynamically fills this -->
-    </div>
-  </div>
-</div>
+<div class="max-w-7xl mx-auto py-10 px-4">
+  <h1 class="text-4xl font-bold text-center text-[#523a28] mb-10" style="font-family: 'Lexend', sans-serif;">Meet Your New Best Friend</h1>
 
-<!-- Favorite JS (localStorage) -->
-<script>
-  function toggleFavorite(petId) {
-    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-    const index = favorites.indexOf(petId);
-    if (index > -1) {
-      favorites.splice(index, 1);
-    } else {
+  <!-- Layout: Sidebar + Content -->
+
+  <div class="flex flex-col lg:flex-row gap-8 min-h-screen">
+    <!-- Sidebar Filter -->
+    <aside class="lg:w-1/4 bg-white rounded-lg shadow p-6 flex flex-col min-h-full">
+    <form method="GET" id="filterForm" class="space-y-4">
+      <!-- Search Box -->
+      <input type="text" name="q" placeholder="Search by name, breed, color, ID..." value="{{ request.GET.q }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-300">
+  
+      <!-- Species -->
+      <div>
+        <label class="block font-semibold text-sm text-[#6d4c41] mb-1">Species</label>
+        <select name="species" onchange="this.form.submit()" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm">
+            <option value="">All ({{ species_counts|get_item:'dog'|default:0|add:species_counts|get_item:'cat'|default:0 }})</option>
+            <option value="dog" {% if species == 'dog' %}selected{% endif %}>
+              Dog ({{ species_counts|get_item:'dog'|default:0 }})
+            </option>
+            <option value="cat" {% if species == 'cat' %}selected{% endif %}>
+              Cat ({{ species_counts|get_item:'cat'|default:0 }})
+            </option>
+        </select>
+      </div>
+      
       favorites.push(petId);
     }
     localStorage.setItem("favorites", JSON.stringify(favorites));
