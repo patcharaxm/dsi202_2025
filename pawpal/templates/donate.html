@@ -6,21 +6,21 @@
 
 <!-- Carousel Banner -->
 <div class="swiper mySwiper w-full h-[300px] rounded-xl overflow-hidden">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="{% static 'banner1.jpg' %}" class="w-full h-full object-cover" />
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="{% static '11.jpg' %}" class="w-full h-full object-cover" />
+      </div>
+      <div class="swiper-slide">
+        <img src="{% static '44.jpeg' %}" class="w-full h-full object-cover" />
+      </div>
+      <div class="swiper-slide">
+        <img src="{% static '454.jpg' %}" class="w-full h-full object-cover" />
+      </div>
     </div>
-    <div class="swiper-slide">
-      <img src="{% static 'banner2.jpg' %}" class="w-full h-full object-cover" />
-    </div>
-    <div class="swiper-slide">
-      <img src="{% static 'banner3.jpg' %}" class="w-full h-full object-cover" />
-    </div>
+    <div class="swiper-button-next text-black"></div>
+    <div class="swiper-button-prev text-black"></div>
   </div>
-  <div class="swiper-button-next text-black"></div>
-  <div class="swiper-button-prev text-black"></div>
-</div>
-
+  
 <script>
   var swiper = new Swiper(".mySwiper", {
     loop: true,
