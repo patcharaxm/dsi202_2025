@@ -268,6 +268,10 @@ def pet_detail(request, pet_id):
     pet = get_object_or_404(StrayAnimal, id=pet_id)
     return render(request, 'adopt/pet_detail.html', {'pet': pet})
 
+def pet_detail_modal(request, pet_id):
+    pet = get_object_or_404(StrayAnimal, id=pet_id)
+    return render(request, 'partials/pet_detail_modal.html', {'pet': pet})
+
 def pet_detail_api(request, pet_id):
     try:
         pet = StrayAnimal.objects.get(id=pet_id)

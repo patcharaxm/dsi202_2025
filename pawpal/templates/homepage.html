@@ -5,42 +5,15 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
 
-<!-- Personality Test -->
 
 <!-- Moving Background Section -->
 <div class="relative rounded-2xl shadow-lg p-8 overflow-hidden animate-gradient-x bg-gradient-to-r from-[#dd6b20] via-[#dd6b20] to-[#fdba74]"
-     style="background-image: url('{% static 'group-pets-together-white-banner-isolated-transparent-background_641503-46816.jpg.avif' %}'); background-size: cover; background-position: center; height  : 300px; width: 100; display: flex; justify-content: center; align-items: center;"">
-    <!-- Cloud -->
-  
-    <!-- Text Content -->
+     style="background-image: url('{% static 'group-pets-together-white-banner-isolated-transparent-background_641503-46816.jpg.avif' %}'); background-size: cover; background-position: center; height: 300px; width: 100%; display: flex; justify-content: center; align-items: center;">
     <div class="relative z-10 text-[#fffaf0] text-center flex flex-col items-center justify-center space-y-3">
-        <h2 class="text-4xl text-[#fffaf0] font-extrabold mb-2"
-         style="font-family: 'Poppins', sans-serif;
-         font-family: 'Poppins', sans-serif;
-      color: #fffaf0;
-      -webkit-text-stroke: 1.5px black; /* ขอบดำรอบตัวหนังสือ */
-      text-stroke: 1.5px black;         /* สำหรับ browser ที่รองรับ */
-      /* หรือจะใช้เงาเป็นทางเลือกก็ได้ */
-      /* text-shadow:
-        -1px -1px 0 #000,
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000; */
-                ">Personality Test</h2>
-
-        <p class="text-white text-sm">Find the perfect match !<span class="text-[#fdba74]"></span></p>
-    
-      <!-- CTA Button -->
-        <a  href="{% url 'personality_test' %}"
-            
-        
-            class="bg-[#f0f0f0] text-[#63360c] font-bold px-8 py-2 rounded-full border-4 border-[#63360c] 
-                   
-            hover:bg-[#0f2b50] hover:text-[#f0f0f1] hover:border-[#0f2b50] 
-                   transition-all duration-300 ease-in-out shadow-md"
-                   >
-            Start Test
-        </a>
+        <h2 class="text-4xl font-extrabold mb-2" style="font-family: 'Poppins', sans-serif; color: #fffaf0; -webkit-text-stroke: 1.5px black;">
+          Personality Test</h2>
+        <p class="text-white text-sm">Find the perfect match!</p>
+        <a href="{% url 'personality_test' %}" class="bg-[#f0f0f0] text-[#63360c] font-bold px-8 py-2 rounded-full border-4 border-[#63360c] hover:bg-[#0f2b50] hover:text-[#f0f0f1] hover:border-[#0f2b50] transition-all duration-300 ease-in-out shadow-md">Start Test</a>
     </div>
 </div>
 
@@ -49,53 +22,35 @@
     <h2 class="text-3xl font-bold text-center text-[#523a28] mb-6" style="font-family: 'Lexend', sans-serif;">
       Find Your New Best Friend Nearby
     </h2>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {% for pet in featured_animals %}
-        <div onclick="openPetModal({{ pet.id }})"
-             class="relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.05] cursor-pointer">
-      
-          <!-- Favorite Button Top Right -->
-          <button onclick="event.stopPropagation(); toggleFavorite('{{ pet.id }}')"
-                  class="absolute top-2 right-2 z-10">
-            <svg id="heart-{{ pet.id }}" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"
-                 stroke-width="2.5" stroke="white" class="w-8 h-8 transition duration-200" style="color: gray;">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
-                       2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81
-                       4.5 2.09C13.09 3.81 14.76 3
-                       16.5 3 19.58 3 22 5.42 22 8.5
-                       c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        <div onclick="openPetModal({{ pet.id }})" class="relative bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.05] cursor-pointer">
+          <button onclick="event.stopPropagation(); toggleFavorite('{{ pet.id }}')" class="absolute top-2 right-2 z-10">
+            <svg id="heart-{{ pet.id }}" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="2.5" stroke="white" class="w-8 h-8 transition duration-200" style="color: gray;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
             </svg>
           </button>
-      
-          <!-- Pet Image -->
-          <img src="{{ pet.image.url }}" alt="{{ pet.name }}" class="w-full h-56 object-cover">
-      
-          <!-- Pet Info -->
+          {% if pet.image %}
+            <img src="{{ pet.image.url }}" alt="{{ pet.name }}" class="w-full h-64 object-cover">
+          {% else %}
+            <img src="{% static 'images/default-pet.jpg' %}" alt="{{ pet.name }}" class="w-full h-64 object-cover">
+          {% endif %}
           <div class="p-4 text-left" style="font-family: 'Lexend', sans-serif;">
             <div class="flex justify-between items-center">
               <h3 class="text-xl font-bold text-[#523a28]">{{ pet.name }}</h3>
-              {% if pet.gender == "male" %}
-                <span title="Male" class="text-blue-500 text-xl">♂</span>
-              {% elif pet.gender == "female" %}
-                <span title="Female" class="text-pink-500 text-xl">♀</span>
-              {% else %}
-                <span class="text-gray-400">?</span>
+              {% if pet.gender == "male" %}<span title="Male" class="text-blue-500 text-xl">♂</span>
+              {% elif pet.gender == "female" %}<span title="Female" class="text-pink-500 text-xl">♀</span>
+              {% else %}<span class="text-gray-400">?</span>
               {% endif %}
             </div>
             <p class="text-sm text-[#8d6e63]">{{ pet.breed }}</p>
           </div>
         </div>
         {% endfor %}
-      
         {% if remaining_animals > 0 %}
-        <div class="bg-[#5a8861] text-white rounded-xl shadow-md flex flex-col items-center justify-center p-6">
-          <p class="text-center text-lg font-semibold">{{ remaining_animals }} more furry friends are waiting for you!</p>
-          <a href="{% url 'adopt' %}"
-             class="mt-4 bg-white text-[#dd6b20] px-6 py-2 rounded-full font-semibold hover:bg-[#eee] transition-all duration-300 hover:shadow-2xl hover:scale-[1.05]">
-            See Them All
-          </a>
+        <div class="bg-[#0f2b50] text-white rounded-xl shadow-md flex flex-col items-center justify-center p-6">
+          <p class="text-center text-lg font-semibold">{{ remaining_animals }} more paws are waiting for your love!</p>
+          <a href="{% url 'adopt' %}" class="mt-4 bg-[#f9f4e7] text-[#523a28] px-6 py-2 rounded-full font-semibold hover:bg-[#eee] transition-all duration-300 hover:shadow-2xl hover:scale-[1.05]">See All</a>
         </div>
         {% endif %}
     </div>
@@ -109,49 +64,39 @@
     <p class="text-[#523a28] max-w-2xl mx-auto mb-6 text-sm md:text-base" style="font-family: 'Lexend', sans-serif;">
       Your support helps provide shelter, food, and medical care to animals in need. Together, we can make a difference.
     </p>
-  
-    <!-- CTA Donate Now -->
-    <a href="{% url 'donate' %}" 
-    class="inline-block bg-[#0f2b50] text-white px-8 py-3 rounded-full font-bold hover:bg-[#09203a] transition">
-    Donate ❤️
-    </a>
+    <a href="{% url 'donate' %}" class="inline-block bg-[#0f2b50] text-white px-8 py-3 rounded-full font-bold hover:bg-[#09203a] transition">Donate ❤️</a>
 </div>
 
-<!-- Support Section -->
-<section class="mt-20">
-    <h2 class="text-2xl font-bold text-[#8d6e63] mb-6 text-center">Support Our PawFriends' Journey to a Better Life</h2>
-    <div class="swiper supportSwiper px-4">
-      <div class="swiper-wrapper">
-        {% for pet in support_animals %}
-        <div class="swiper-slide">
-          <div class="relative bg-white rounded-xl shadow-md overflow-hidden group">
-            <img src="{{ pet.image.url }}" alt="{{ pet.name }}" class="h-48 w-full object-cover">
-            <div class="p-4 text-left">
-              <h3 class="font-bold text-lg text-[#523a28]">{{ pet.name }}</h3>
-              <p class="text-sm text-[#8d6e63] italic">{{ pet.breed }}</p>
-            </div>
-            <!-- Hover Overlay -->
-            <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
-              <button onclick="openSupportPopup({{ pet.id }}, '{{ pet.name }}')" class="bg-white text-[#6d9f71] px-4 py-2 rounded-full font-semibold shadow hover:bg-[#6d9f71] hover:text-white">Sponsor</button>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
+<!-- Support Section: Horizontal Cards -->
+<section class="mt-20 px-4">
+  <h2 class="text-2xl font-bold text-[#8d6e63] mb-6 text-center">Support Our PawFriends' Journey to a Better Life</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for pet in support_animals %}
+    <div class="relative bg-white rounded-xl shadow-md overflow-hidden">
+      {% if pet.image %}
+        <img src="{{ pet.image.url }}" alt="{{ pet.name }}" class="w-full h-56 object-cover">
+      {% else %}
+        <img src="{% static 'images/default-pet.jpg' %}" alt="{{ pet.name }}" class="w-full h-56 object-cover">
+      {% endif %}
+      <div class="p-4 text-left">
+        <h3 class="font-bold text-lg text-[#523a28]">{{ pet.name }}</h3>
+        <p class="text-sm text-[#8d6e63] italic">{{ pet.breed }}</p>
+        <button onclick="openSupportPopup({{ pet.id }}, '{{ pet.name }}')" class="mt-2 bg-[#0f2b50] text-white px-4 py-2 rounded-full font-semibold hover:bg-[#5a8e60]">Sponsor</button>
       </div>
-      <div class="swiper-button-next text-[#8d6e63]"></div>
-      <div class="swiper-button-prev text-[#8d6e63]"></div>
     </div>
+    {% endfor %}
+  </div>
 </section>
 
   <!-- Updated Support Pop-up with real QR, upload, and donation submission -->
 <div id="supportPopup" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden justify-center items-center">
     <div class="bg-white p-6 rounded-xl max-w-md w-full relative">
       <button onclick="closeSupportPopup()" class="absolute top-2 right-4 text-gray-500 hover:text-red-600 text-xl">&times;</button>
-      <h3 class="text-xl font-bold text-[#6d9f71] mb-4">Sponsor <span id="popupPetName"></span></h3>
+      <h3 class="text-xl font-bold text-[#0f2b50] mb-4">Sponsor <span id="popupPetName"></span></h3>
   
       <!-- Step 1: Enter amount -->
       <input type="number" id="sponsorAmount" class="w-full mb-4 px-4 py-2 border rounded" placeholder="Enter amount (THB)">
-      <button id="sponsorContinueBtn" onclick="generateSponsorQR()" class="w-full bg-[#6d9f71] text-white font-bold py-2 px-4 rounded-full">
+      <button id="sponsorContinueBtn" onclick="generateSponsorQR()" class="w-full bg-[#0f2b50] text-white font-bold py-2 px-4 rounded-full">
         Continue
       </button>
       <!-- Step 2: Show QR + upload slip -->
@@ -159,11 +104,11 @@
         <div id="sponsorQrImageContainer" class="mb-4"></div>
         <p class="text-sm text-gray-700 mb-2">Scan and pay, then upload the slip below.</p>
         <input type="file" id="sponsorSlipUpload" accept="image/*" class="w-full mb-4">
-        <button onclick="submitSponsorDonation()" class="w-full bg-[#d55e00] text-white py-2 px-4 rounded-full">Confirm</button>
+        <button onclick="submitSponsorDonation()" class="w-full bg-[#0f2b50] text-white py-2 px-4 rounded-full">Confirm</button>
       </div>
   
       <!-- Step 3: Thank You -->
-      <div id="sponsorThankYou" class="hidden text-center mt-4 text-[#6d9f71] font-semibold">
+      <div id="sponsorThankYou" class="hidden text-center mt-4 text-[#0f2b50] font-semibold">
         🙏 Thank you for your kindness!
       </div>
     </div>
