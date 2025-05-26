@@ -2,20 +2,26 @@
 {% load static %}
 {% block title %}Thank You - PawPal{% endblock %}
 {% block content %}
-<div class="min-h-[70vh] flex flex-col justify-center items-center text-center py-20 px-4 bg-[#fffef6]">
-    <!-- 🎉 Icon -->
-    <div class="text-6xl mb-4 animate-bounce">🎉🐾</div>
-      
+<section class="bg-[#f9f4e7] py-20 px-4 flex items-center justify-center min-h-[80vh]">
+  <div class="bg-white rounded-3xl shadow-2xl max-w-3xl w-full px-10 py-12 text-center">
+
+    <!-- Icon -->
+    <div class="text-6xl mb-4 animate-bounce"><3</div>
+
     <!-- Heading -->
-    <h1 class="text-4xl font-extrabold text-[#523a28] mb-4" style="font-family: 'Lexend', sans-serif;">
-        Thank you for your request!
+    <h1 class="text-4xl font-extrabold text-[#0f2b50] mb-4" style="font-family: 'Lexend', sans-serif;">
+      Thank you for your request!
     </h1>
 
-  <!-- Subtext -->
-  <p class="max-w-xl text-gray-700 text-base md:text-lg mb-8">
-    We’ve received your adoption request. Our team will contact you soon with the next steps. 
-    Please keep an eye on your email inbox and thank you for helping a furry friend find a home!
-  </p>
-  <a href="/" class="mt-6 inline-block bg-[#d55e00] hover:bg-[#b44800] text-white font-bold py-3 px-6 rounded-full shadow transition-all">Back to Home</a>
-</div>
+    <!-- Subtext -->
+    <p class="text-gray-700 text-base md:text-lg max-w-xl mx-auto">
+        Your adoption request is in safe paws! 🐾 Our team will be in touch shortly to guide you through the next steps. Thank you for opening your heart to a new best friend.
+    </p>
+
+    <!-- Button -->
+    <a href="/" class="mt-8 inline-block bg-[#0f2b50] hover:bg-[#0c223f] text-white font-bold py-3 px-8 rounded-full transition shadow-md">
+      Back to Home
+    </a>
+  </div>
+</section>
 {% endblock %}

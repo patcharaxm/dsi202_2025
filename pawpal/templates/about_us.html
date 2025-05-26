@@ -3,76 +3,72 @@
 {% block title %}About Us - PawPal{% endblock %}
 
 {% block content %}
-<div class="bg-[#f9f4e7] py-10 px-4 max-w-4xl mx-auto">
+<div class="bg-[#f9f4e7] py-16 px-6 lg:px-16 max-w-6xl mx-auto">
 
   <!-- Header -->
-  <h1 class="text-4xl font-bold text-center text-[#0f2b50] mb-8" style="font-family: 'Lexend', sans-serif;">About us</h1>
+  <h1 class="text-5xl font-bold text-center text-[#0f2b50] mb-12" style="font-family: 'Lexend', sans-serif;">Get to Know Us</h1>
 
   <!-- What we do -->
-  <section class="mb-10">
-    <h2 class="text-xl font-bold text-[#0f2b50] mb-2">What we do ?</h2>
-    <div class="bg-[#f9f4e7] p-4 rounded-lg shadow text-center text-[#0f2b50]">
-      <p>At PawPal, we rescue, care for and rehome stray dogs and cats. We work with kind-hearted volunteers and loving adopters to give every furry friend a second chance at life.</p>
-      <p class="mt-4 text-[#0f2b50] font-semibold">From street to sofa — we’re here for every paw. 🐾</p>
+  <section class="mb-16">
+    <div class="bg-white p-6 rounded-2xl shadow text-[#0f2b50]">
+      <p class="text-lg leading-relaxed">At PawPal, we rescue, care for, and rehome stray dogs and cats across the country. From emergency rescues to long-term care, our dedicated volunteers and supporters ensure each animal gets the love they deserve.</p>
+      <p class="mt-4 font-semibold">From street to sofa — we're walking beside every paw. 🐾</p>
     </div>
   </section>
 
   <!-- Why we do -->
-  <section class="mb-12">
-    <h2 class="text-xl font-bold text-[#0f2b50] mb-2">Why we do ?</h2>
-    <div class="bg-[#f9f4e7] p-4 rounded-lg shadow text-[#0f2b50]">
-      <p>We believe every dog and cat deserves love, safety, and a place to call home. No paw should be left behind.</p>
-      <p class="mt-2">We do this because they can’t ask for help — but we can help them. 🧡</p>
+  <section class="mb-20">
+    <h2 class="text-2xl font-bold text-[#0f2b50] mb-4">Why We Do It</h2>
+    <div class="bg-white p-6 rounded-2xl shadow text-[#0f2b50]">
+      <p class="text-lg leading-relaxed">We believe every animal deserves a chance at life. Many suffer in silence — but with your help, we can provide them with safety, healing, and a loving forever home.</p>
+      <p class="mt-2">Because they can't speak for themselves, we act for them. 💙</p>
     </div>
   </section>
 
   <!-- Hope in Numbers -->
-  <section class="text-center mb-12">
-    <h3 class="text-xl font-bold bg-[#0f2b50] text-[#f9f4e7] px-6 py-2 rounded-full inline-block mb-6">Hope in Numbers</h3>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-[#0f2b50] text-sm">
-
+  <section class="text-center mb-20">
+    <h3 class="text-2xl font-bold bg-[#0f2b50] text-[#f9f4e7] px-6 py-2 rounded-full inline-block mb-10">Hope in Numbers</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-[#0f2b50] text-lg">
       <div class="flex flex-col items-center">
-        <img src="{% static 'money.png' %}" class="w-10 mb-2" alt="Money">
-        <p class="font-bold text-xl">{{ donation_total|floatformat:0 }}</p>
+        <img src="{% static 'money.jpg.avif' %}" class="w-12 mb-3" alt="Money">
+        <p class="font-bold text-2xl">{{ donation_total|floatformat:0 }}</p>
         <span>THB Donated</span>
       </div>
-
       <div class="flex flex-col items-center">
-        <img src="{% static 'home.png' %}" class="w-10 mb-2" alt="Home">
-        <p class="font-bold text-xl">{{ adopted_count }}</p>
-        <span>Adopted</span>
+        <img src="{% static 'homepet.jpeg' %}" class="w-12 mb-3" alt="Home">
+        <p class="font-bold text-2xl">{{ adopted_count }}</p>
+        <span>Adoptions Completed</span>
       </div>
-
       <div class="flex flex-col items-center">
-        <img src="{% static 'pet.png' %}" class="w-10 mb-2" alt="Pet">
-        <p class="font-bold text-xl">{{ medical_count }}</p>
-        <span>Medical Pets</span>
+        <img src="{% static 'help_pet.png' %}" class="w-12 mb-3" alt="Pet">
+        <p class="font-bold text-2xl">{{ medical_count }}</p>
+        <span>Medical Cases Helped</span>
       </div>
     </div>
   </section>
 
   <!-- Blog and Resources -->
   <section>
-    <h3 class="text-2xl font-bold text-center text-[#0f2b50] mb-6" style="font-family: 'Lexend', sans-serif;">Blog and Resources</h3>
-    <div class="grid md:grid-cols-3 gap-6">
-      <a href="{% url 'blog_detail' 1 %}" class="block bg-[#f9f4e7] rounded-xl overflow-hidden shadow hover:shadow-md transition">
-        <img src="{% static 'blog1.jpg' %}" class="w-full h-40 object-cover" />
+    <h3 class="text-3xl font-bold text-center text-[#0f2b50] mb-8" style="font-family: 'Lexend', sans-serif;">Helpful Reads & Resources</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <a href="{% url 'blog_detail' 1 %}" class="block bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+        <img src="{% static 'blog1 copy.jpg' %}" class="w-full h-44 object-cover" />
         <div class="p-4">
-          <p class="font-semibold text-[#0f2b50]">ขนร่วงแบบนี้ปกติหรือพาไปหาหมอ</p>
+          <p class="font-semibold text-[#0f2b50]">Is this fur loss normal or time to see the vet?</p>
         </div>
       </a>
 
-      <a href="{% url 'blog_detail' 2 %}" class="block bg-[#f9f4e7] rounded-xl overflow-hidden shadow hover:shadow-md transition">
-        <img src="{% static 'blog2.jpg' %}" class="w-full h-40 object-cover" />
+      <a href="{% url 'blog_detail' 2 %}" class="block bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+        <img src="{% static 'blog2.png' %}" class="w-full h-44 object-cover" />
         <div class="p-4">
-          <p class="font-semibold text-[#0f2b50]">สัตว์เลี้ยงป่วยบ่อย ทำไงดี ?</p>
+          <p class="font-semibold text-[#0f2b50]">What to do if your pet keeps getting sick</p>
         </div>
       </a>
 
-      <a href="{% url 'blog_detail' 3 %}" class="block bg-[#f9f4e7] rounded-xl overflow-hidden shadow hover:shadow-md transition">
-        <img src="{% static 'blog3.jpg' %}" class="w-full h-40 object-cover" />
+      <a href="{% url 'blog_detail' 3 %}" class="block bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+        <img src="{% static 'blog3l.jpg' %}" class="w-full h-44 object-cover" />
         <div class="p-4">
-          <p class="font-semibold text-[#0f2b50]">5 พฤติกรรมที่บอกว่าน้องกำลังเครียด</p>
+          <p class="font-semibold text-[#0f2b50]">5 signs your pet might be stressed</p>
         </div>
       </a>
     </div>

@@ -4,57 +4,52 @@
 
 {% block content %}
 
-<div class="mb-6">
-    <a href="{% url 'donate' %}" class="inline-block bg-[#d55e00] hover:bg-[#b54800] text-white font-semibold py-2 px-4 rounded-full shadow">
+<div class="mb-6 text-center">
+    <a href="{% url 'donate' %}" class="inline-block bg-[#0f2b50] hover:bg-[#0c223f] text-white font-semibold py-2 px-6 rounded-full shadow">
         ← Back to Donate Page
-      </a>
-  </div>
-<div class="max-w-5xl mx-auto py-10 px-6">
-  <!-- Animal Detail Section -->
-  <div class="grid md:grid-cols-2 gap-8 mb-10">
-    <!-- Left: Image + Info -->
-    <div>
-      <img src="{{ sponsorship.pet.image.url }}" alt="{{ sponsorship.pet.name }}" class="w-full h-64 object-cover rounded-xl mb-4">
-      <div class="bg-white p-4 rounded-xl shadow space-y-2">
-        <h2 class="text-xl font-bold text-[#6d4c41]">No. {{ sponsorship.pet.pet_id }} – {{ sponsorship.pet.name }}</h2>
+    </a>
+</div>
+
+<div class="max-w-5xl mx-auto py-12 px-4">
+  <div class="bg-[#f9f4e7] rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-2">
+    <!-- Left: Pet Image & Info -->
+    <div class="p-6 flex flex-col items-center text-center">
+      <img src="{{ sponsorship.pet.image.url }}" alt="{{ sponsorship.pet.name }}" class="w-full h-64 object-cover rounded-2xl shadow-md mb-6">
+      <div class="space-y-2">
+        <h2 class="text-2xl font-bold text-[#0f2b50]">No. {{ sponsorship.pet.pet_id }} – {{ sponsorship.pet.name }}</h2>
         <p><strong>Breed:</strong> {{ sponsorship.pet.breed }}</p>
-        <p class="flex items-center">
+        <p class="flex justify-center items-center gap-1">
           <strong>Gender:</strong>
           {% if sponsorship.pet.gender == "male" %}
-            <span class="text-blue-600 ml-1">♂ Male</span>
+            <span class="text-blue-600">♂ Male</span>
           {% else %}
-            <span class="text-pink-500 ml-1">♀ Female</span>
+            <span class="text-pink-500">♀ Female</span>
           {% endif %}
         </p>
         <p><strong>Age:</strong> {{ sponsorship.pet.get_age_in_years|floatformat:1 }} Years</p>
       </div>
     </div>
 
-    <!-- Right: Condition Description + Progress + Donation -->
-    <div>
-      <h3 class="text-lg font-semibold text-[#6d4c41] mb-2">Description of the condition</h3>
-      <p class="text-gray-700 mb-4">{{ sponsorship.description }}</p>
-
-      <!-- Progress Bar -->
-      <div class="mb-6">
+    <!-- Right: Description & Donation Form -->
+    <div class="p-8 flex flex-col justify-between">
+      <div>
+        <h3 class="text-xl font-semibold text-[#0f2b50] mb-3">Description of the condition</h3>
+        <p class="text-gray-700 leading-relaxed mb-6">{{ sponsorship.description }}</p>
         <p class="text-sm text-gray-600 mb-1">Goal: ฿{{ sponsorship.goal_amount|floatformat:0 }}</p>
         <div class="w-full bg-gray-200 h-4 rounded-full overflow-hidden">
-          <div class="h-4 bg-[#6d9f71]" style="width: {{ sponsorship.get_progress_percent }}%;"></div>
+          <div class="h-4 bg-[#0f2b50]" style="width: {{ sponsorship.get_progress_percent }}%;"></div>
         </div>
         <p class="text-xs text-right text-gray-500 mt-1">{{ sponsorship.get_progress_percent }}% funded</p>
       </div>
 
-      <!-- Donation Box -->
-      <div class="bg-orange-50 p-5 rounded-xl shadow">
-        <h4 class="text-lg font-bold mb-3 text-[#523a28]">Support Them</h4>
+      <div class="mt-6">
+        <h4 class="text-lg font-bold text-[#0f2b50] mb-2">Support Them</h4>
         <form id="medDonationForm">
           <input type="hidden" id="sponsorshipId" value="{{ sponsorship.id }}">
-          <input type="text" id="donorName" placeholder="Full Name" class="w-full border rounded px-4 py-2 mb-2" required>
-          <input type="email" id="email" placeholder="Email Address" class="w-full border rounded px-4 py-2 mb-2" required>
-          <input type="number" id="donationAmount" placeholder="Amount (THB)" class="w-full border rounded px-4 py-2 mb-4" required>
-          <button type="button" onclick="openMedPopup({{ sponsorship.id }})" class="bg-[#d55e00] hover:bg-[#b54800] text-white font-bold py-2 px-4 w-full rounded-full">
-            Donate Now
-          </button>
+          <input type="text" id="donorName" placeholder="Full Name" class="w-full border border-gray-300 rounded px-4 py-2 mb-2" required>
+          <input type="email" id="email" placeholder="Email Address" class="w-full border border-gray-300 rounded px-4 py-2 mb-2" required>
+          <input type="number" id="donationAmount" placeholder="Amount (THB)" class="w-full border border-gray-300 rounded px-4 py-2 mb-4" required>
+          <button type="button" onclick="openMedPopup({{ sponsorship.id }})" class="w-full bg-[#0f2b50] hover:bg-[#0c223f] text-white font-bold py-3 rounded-full">Donate Now</button>
         </form>
       </div>
     </div>
@@ -63,26 +58,25 @@
 
 <!-- Medical Donation Popup -->
 <div id="medDonatePopup" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 hidden">
-  <div class="bg-white p-6 rounded-xl max-w-lg w-full relative shadow-lg">
+  <div class="bg-[#f9f4e7] p-6 rounded-xl max-w-lg w-full relative shadow-lg">
     <button onclick="closeMedPopup()" class="absolute top-2 right-4 text-gray-500 hover:text-red-600 text-xl">&times;</button>
 
-    <!-- Step 1: QR Display -->
     <div id="medStep1">
-      <h3 class="text-2xl font-bold text-center text-[#523a28] mb-4">Scan to Donate with PromptPay</h3>
+      <h3 class="text-2xl font-bold text-center text-[#0f2b50] mb-4">Scan to Donate with PromptPay</h3>
       <div id="medQrImageContainer" class="mb-4 text-center"></div>
       <p class="text-sm text-gray-600 text-center">You have <span id="medCountdown">05:00</span> minutes to complete payment</p>
       <input type="file" id="slipImage" accept="image/*" class="mt-4 w-full">
-      <button onclick="submitMedicalDonation({{ sponsorship.id }})" class="bg-[#d55e00] text-white font-bold px-6 py-2 mt-6 rounded-full w-full">Confirm Donation</button>
+      <button onclick="submitMedicalDonation({{ sponsorship.id }})" class="bg-[#0f2b50] text-white font-bold px-6 py-2 mt-6 rounded-full w-full">Confirm Donation</button>
     </div>
 
-    <!-- Step 2: Thank You -->
     <div id="medStep2" class="hidden text-center">
-        <h3 class="text-2xl font-bold text-[#6d9f71] mb-4">Thank You!</h3>
-        <p class="text-gray-700">Your support means the world to our furry friends ❤️</p>
-        <button onclick="closeMedPopup()" class="mt-4 bg-gray-300 hover:bg-gray-400 px-6 py-2 rounded-full">Close</button>
-  </div>
+      <h3 class="text-2xl font-bold text-[#6d9f71] mb-4">Thank You!</h3>
+      <p class="text-gray-700">Your support means the world to our furry friends ❤️</p>
+      <button onclick="closeMedPopup()" class="mt-4 bg-gray-300 hover:bg-gray-400 px-6 py-2 rounded-full">Close</button>
+    </div>
   </div>
 </div>
+
 
 <script>
   let medTimerInterval;
