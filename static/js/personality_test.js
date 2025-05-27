@@ -66,7 +66,7 @@ function showResultPopup(pet) {
         <div class="bg-white p-6 rounded-xl shadow-xl text-center relative max-w-sm w-full">
             <button id="closePopup" class="absolute top-2 right-3 text-gray-500 text-xl">&times;</button>
             <img src="${pet.image_url}" class="w-32 h-32 object-cover rounded-full mx-auto mb-4" alt="${pet.name}">
-            <h2 class="text-xl font-bold text-[#6d9f71] mb-2">Your Match is: ${pet.name}</h2>
+            <h2 class="text-xl font-bold text-[#0f2b50] mb-2">Your Match is: ${pet.name}</h2>
             <p class="text-gray-700">${pet.breed} • ${pet.gender} • ${pet.age}</p>
             <p class="mt-2 text-sm text-gray-500">${pet.description}</p>
         </div>

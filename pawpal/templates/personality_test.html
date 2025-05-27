@@ -1,144 +1,90 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Personality Test - PawPal{% endblock %}
 {% block content %}
-<div class="bg-gray-50 min-h-[80vh] py-12 px-4">
-  <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-8">
-    <h1 class="text-2xl font-bold text-[#6d9f71] mb-6 text-center">🐾 แบบทดสอบบุคลิกภาพของคุณ</h1>
+<div class="max-w-3xl mx-auto bg-white shadow-lg rounded-xl overflow-hidden">
+  
+    <!-- รูปภาพแบนเนอร์เต็มกว้าง -->
+    <img src="{% static 'per.jpeg' %}" alt="Personality Test Banner" class="w-full h-52 object-cover">
+  
+    <div class="p-8">
+    <h1 class="text-2xl font-bold text-[#0f2b50] mb-6 text-center">Find the Perfect PawPal for You<3</h1>
     <form method="post">
       {% csrf_token %}
-      <style>
-        /* ปรับพื้นหลังของ select */
-        select {
-            background-color: #f0f0f0;  /* สีเทาอ่อน */
-            color: #333;                /* สีตัวอักษรใน dropdown */
-            border: 1px solid #ccc;     /* กรอบของ dropdown */
-            border-radius: 4px;         /* มุมโค้งของกรอบ */
-            padding: 10px 12px;         /* เพิ่มช่องว่างภายใน */
-        }
-
-        /* ปรับสไตล์เมื่อ hover */
-        select:hover {
-            background-color: #e0e0e0;  /* สีเทาเข้มขึ้นเมื่อ hover */
-        }
-
-        /* ปรับให้ select มีสไตล์สวยงาม */
-        select:focus {
-            outline: none;              /* ลบเส้นกรอบเมื่อเลือก */
-            border-color: #007bff;      /* สีกรอบเมื่อเลือก */
-            background-color: #fff;     /* เปลี่ยนพื้นหลังเป็นขาวเมื่อเลือก */
-        }
-      </style>
 
       <!-- Question 1 -->
       <div class="mb-6">
-        <label class="block text-gray-700 font-medium mb-2">1. คุณชอบกิจกรรมแบบไหนในเวลาว่าง?</label>
-        <select name="q1" required class="w-full border rounded px-3 py-2">
-          <option value="">-- เลือกคำตอบ --</option>
-          <option value="active">กิจกรรมกลางแจ้ง เช่น วิ่ง ปั่นจักรยาน</option>
-          <option value="calm">พักผ่อน เช่น อ่านหนังสือ หรือนั่งสมาธิ</option>
-          <option value="social">พบปะผู้คน หรือออกงานสังคม</option>
+        <label class="block text-gray-700 font-medium mb-2">1. What’s most important in your daily life?</label>
+        <select name="q5" required class="w-full border rounded px-3 py-2">
+          <option value="">-- Select an answer --</option>
+          <option value="affection">Feeling loved and close to others</option>
+          <option value="freedom">Freedom to do your own thing</option>
+          <option value="responsibility">Structure and clear goals</option>
+          <option value="fun">Daily moments of joy and fun</option>
         </select>
       </div>
 
       <!-- Question 2 -->
       <div class="mb-6">
-        <label class="block text-gray-700 font-medium mb-2">2. คุณชอบสัตว์แบบไหนมากที่สุด?</label>
-        <select name="q2" required class="w-full border rounded px-3 py-2">
-          <option value="">-- เลือกคำตอบ --</option>
-          <option value="energetic">สุนัขที่กระตือรือร้น ชอบวิ่งเล่น</option>
-          <option value="quiet">แมวที่น่ารักและเงียบสงบ</option>
-          <option value="easygoing">สัตว์เลี้ยงที่ดูแลง่าย ไม่ต้องการความสนใจมาก</option>
+        <label class="block text-gray-700 font-medium mb-2">2. What helps you recharge?</label>
+        <select name="q4" required class="w-full border rounded px-3 py-2">
+          <option value="">-- Select an answer --</option>
+          <option value="nap">A good nap</option>
+          <option value="talk">Chatting with loved ones</option>
+          <option value="exercise">Going out to stretch or move</option>
+          <option value="focus">Focusing on a project or hobby</option>
         </select>
       </div>
 
       <!-- Question 3 -->
       <div class="mb-6">
-        <label class="block text-gray-700 font-medium mb-2">3. คุณเป็นคนแบบไหนเมื่ออยู่กับเพื่อน?</label>
+        <label class="block text-gray-700 font-medium mb-2">3. What’s your preferred living vibe?</label>
         <select name="q3" required class="w-full border rounded px-3 py-2">
-          <option value="">-- เลือกคำตอบ --</option>
-          <option value="leader">ชอบเป็นผู้นำ</option>
-          <option value="follower">มักตามเพื่อนหรือร่วมมือกับคนอื่น</option>
-          <option value="independent">ชอบอยู่คนเดียวหรือมีความเป็นตัวเองสูง</option>
+          <option value="">-- Select an answer --</option>
+          <option value="yard">Big open space to move around</option>
+          <option value="apartment">Compact and efficient city life</option>
+          <option value="peaceful">Calm, nature-surrounded area</option>
+          <option value="travel">No fixed place — love traveling</option>
         </select>
       </div>
 
       <!-- Question 4 -->
       <div class="mb-6">
-        <label class="block text-gray-700 font-medium mb-2">4. คุณคิดว่าเวลาที่เหมาะกับการออกกำลังกายคือช่วงไหน?</label>
-        <select name="q4" required class="w-full border rounded px-3 py-2">
-          <option value="">-- เลือกคำตอบ --</option>
-          <option value="morning">เช้า</option>
-          <option value="evening">เย็น</option>
-          <option value="rarely">ไม่ค่อยออกกำลังกาย</option>
+        <label class="block text-gray-700 font-medium mb-2">4. Which phrase describes you best?</label>
+        <select name="q2" required class="w-full border rounded px-3 py-2">
+          <option value="">-- Select an answer --</option>
+          <option value="playful">Loves play and excitement</option>
+          <option value="calm">Enjoys peace and reflection</option>
+          <option value="loyal">Always loyal and caring</option>
+          <option value="independent">Values independence and space</option>
         </select>
       </div>
+
       <!-- Question 5 -->
       <div class="mb-6">
-        <label class="block text-gray-700 font-medium mb-2">5. คุณชอบอยู่ในสภาพแวดล้อมแบบไหน?</label>
-        <select name="q5" required class="w-full border rounded px-3 py-2">
-          <option value="">-- เลือกคำตอบ --</option>
-          <option value="busy">เมืองที่มีคนพลุกพล่าน</option>
-          <option value="quiet">พื้นที่สงบ ร่มรื่น</option>
-          <option value="nature">ธรรมชาติ รอบล้อมไปด้วยต้นไม้</option>
-        </select>
-      </div>      
-      <!-- Question 6 -->
-      <div class="mb-6">
-        <label class="block text-gray-700 font-medium mb-2">6. เวลารู้สึกเครียด คุณมักจะทำอะไร?</label>
-        <select name="q6" required class="w-full border rounded px-3 py-2">
-          <option value="">-- เลือกคำตอบ --</option>
-          <option value="exercise">ออกกำลังกายหรือเคลื่อนไหวร่างกาย</option>
-          <option value="relax">พักผ่อน ทำสมาธิ</option>
-          <option value="socialize">พูดคุยกับเพื่อนหรือครอบครัว</option>
-        </select>
-      </div>      
-      <!-- Question 7 -->
-      <div class="mb-6">
-        <label class="block text-gray-700 font-medium mb-2">7. คุณชอบสัตว์เลี้ยงที่ต้องการการดูแลมากแค่ไหน?</label>
-        <select name="q7" required class="w-full border rounded px-3 py-2">
-          <option value="">-- เลือกคำตอบ --</option>
-          <option value="high">ต้องการดูแลอย่างใกล้ชิดและต่อเนื่อง</option>
-          <option value="medium">ต้องการดูแลเป็นครั้งคราว</option>
-          <option value="low">ดูแลง่าย ไม่ยุ่งยาก</option>
-        </select>
-      </div>      
-      <!-- Question 8 -->
-      <div class="mb-6">
-        <label class="block text-gray-700 font-medium mb-2">8. เวลาที่คุณออกไปข้างนอก คุณชอบแบบไหน?</label>
-        <select name="q8" required class="w-full border rounded px-3 py-2">
-          <option value="">-- เลือกคำตอบ --</option>
-          <option value="frequent">ออกบ่อย ชอบกิจกรรมข้างนอก</option>
-          <option value="sometimes">ออกบ้างเป็นบางครั้ง</option>
-          <option value="rarely">ไม่ค่อยชอบออกไปข้างนอก</option>
-        </select>
-      </div>      
-      <!-- Question 9 -->
-      <div class="mb-6">
-        <label class="block text-gray-700 font-medium mb-2">9. คุณคิดว่าตัวเองมีพลังงานแบบไหน?</label>
-        <select name="q9" required class="w-full border rounded px-3 py-2">
-          <option value="">-- เลือกคำตอบ --</option>
-          <option value="high">พลังงานสูง กระฉับกระเฉง</option>
-          <option value="medium">พลังงานปานกลาง</option>
-          <option value="low">พลังงานต่ำ ชอบพักผ่อนมากกว่า</option>
-        </select>
-      </div>      
-      <!-- Question 10 -->
-      <div class="mb-6">
-        <label class="block text-gray-700 font-medium mb-2">10. คุณชอบสัตว์เลี้ยงที่มีขนาดเท่าไหร่?</label>
-        <select name="q10" required class="w-full border rounded px-3 py-2">
-          <option value="">-- เลือกคำตอบ --</option>
-          <option value="small">ตัวเล็ก (เช่น แมว หรือสุนัขพันธุ์เล็ก)</option>
-          <option value="medium">ขนาดกลาง</option>
-          <option value="large">ขนาดใหญ่ (เช่น สุนัขพันธุ์ใหญ่)</option>
+        <label class="block text-gray-700 font-medium mb-2">5. How do you usually unwind after a long day?</label>
+        <select name="q1" required class="w-full border rounded px-3 py-2">
+          <option value="">-- Select an answer --</option>
+          <option value="relax">Relaxing at home with quiet time</option>
+          <option value="adventure">Going for a walk or mini adventure</option>
+          <option value="social">Calling friends or spending time together</option>
+          <option value="hobbies">Engaging in hobbies like reading or crafting</option>
         </select>
       </div>
-    
-      
-      
-      <button type="submit" class="bg-[#6d9f71] text-white font-semibold px-6 py-2 rounded hover:bg-[#5a8661] transition">
-        ส่งคำตอบ
-      </button>
+
+      <div class="text-center">
+        <button type="submit" class="bg-[#0f2b50] text-white font-semibold px-6 py-2 rounded hover:bg-[#0c1e3a] transition">
+          Submit Answers
+        </button>
     </form>
   </div>
 </div>
+
+{% block extra_js %}
+<script>
+    const isLoggedIn = {{ user.is_authenticated|yesno:"true,false" }};
+</script>
+<script src="{% static 'js/personality_test.js' %}?v=2"></script>
+
+{% endblock %}
 {% endblock %}
